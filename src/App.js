@@ -1,11 +1,12 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 import RecipeForm from './componets/RecipeForm/RecipeForm.js';
-//import {getFromLocal} from './lib/localStorage.js';
+import {getFromLocal, setToLocal} from './lib/localStorage.js';
 
 export default function App() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? []);
+  useEffect(() => setToLocal('recipes', recipes), [recipes]);
 
   return (
     <Container>
