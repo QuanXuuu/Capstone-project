@@ -39,6 +39,7 @@ const Scroller = styled.ul`
   height: 100%;
   overflow-y: auto;
 `;
+
 const RecipeItem = styled.li`
   word-wrap: anywhere;
   list-style: none;
