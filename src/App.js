@@ -1,3 +1,4 @@
+import {nanoid} from 'nanoid';
 import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
@@ -6,7 +7,15 @@ import {getFromLocal, setToLocal} from './lib/localStorage.js';
 
 export default function App() {
   const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? []);
+  const newRecipe = {
+    id: nanoid(),
+  };
+
   useEffect(() => setToLocal('recipes', recipes), [recipes]);
+
+  function addRecipe(description) {
+    setRecipes([...recipes, description]);
+  }
 
   return (
     <Container>
@@ -15,16 +24,12 @@ export default function App() {
 
       <h2>My favorite recipes:</h2>
       <Scroller>
-        {recipes.map((recipe, index) => (
-          <RecipeItem key={index}>{recipe}</RecipeItem>
+        {recipes.map((recipe, id) => (
+          <RecipeItem key={id}>{newRecipe}</RecipeItem>
         ))}
       </Scroller>
     </Container>
   );
-
-  function addRecipe(description) {
-    setRecipes([...recipes, description]);
-  }
 }
 
 const Container = styled.main`
