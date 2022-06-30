@@ -24,7 +24,7 @@ export default function App() {
 
       <h2>My favorite recipes:</h2>
       <Scroller>
-        {recipes.map((recipe, id) => (
+        {recipes.map((newRecipe, id) => (
           <RecipeItem key={id}>{newRecipe}</RecipeItem>
         ))}
       </Scroller>
