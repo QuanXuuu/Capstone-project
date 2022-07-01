@@ -17,10 +17,10 @@ export default function RecipeForm({onCreateRecipe}) {
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    const description = form.elements.recipe.value.trim();
+    const recipeName = form.elements.recipe.value.trim();
 
-    if (description.length > 0) {
-      onCreateRecipe(description);
+    if (recipeName.length > 0) {
+      onCreateRecipe(recipeName);
     }
     form.reset();
     form.focus();

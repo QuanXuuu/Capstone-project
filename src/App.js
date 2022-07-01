@@ -1,51 +1,19 @@
-import {nanoid} from 'nanoid';
-import {useState, useEffect} from 'react';
-import styled from 'styled-components';
+import {Routes, Route} from 'react-router-dom';
 
-import RecipeForm from './componets/RecipeForm/RecipeForm.js';
-import {getFromLocal, setToLocal} from './lib/localStorage.js';
+import Navigation from './components/Navigation';
+import Home from './pages/Home';
+import RecipeCreate from './pages/RecipeCreate';
+import RecipeView from './pages/RecipeView';
 
 export default function App() {
-  const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? []);
-  const newRecipe = {
-    id: nanoid(),
-  };
-
-  useEffect(() => setToLocal('recipes', recipes), [recipes]);
-
-  function addRecipe(description) {
-    setRecipes([...recipes, description]);
-  }
-
   return (
-    <Container>
-      <Headline>Home Cooking</Headline>
-      <RecipeForm onCreateRecipe={addRecipe} />
-
-      <h2>My favorite recipes:</h2>
-      <Scroller>
-        {recipes.map((newRecipe, id) => (
-          <RecipeItem key={id}>{newRecipe}</RecipeItem>
-        ))}
-      </Scroller>
-    </Container>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/recipes/new" element={<RecipeCreate />} />
+        <Route path="/recipes" element={<RecipeView />} />
+      </Routes>
+      <Navigation />
+    </>
   );
 }
-
-const Container = styled.main`
-  padding: 30px;
-`;
-
-const Headline = styled.h1`
-  text-align: center;
-`;
-
-const Scroller = styled.ul`
-  height: 100%;
-  overflow-y: auto;
-`;
-
-const RecipeItem = styled.li`
-  word-wrap: anywhere;
-  list-style: none;
-`;
