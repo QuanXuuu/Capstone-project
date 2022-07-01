@@ -23,6 +23,7 @@ export default function RecipeForm({onCreateRecipe}) {
       onCreateRecipe(description);
     }
     form.reset();
+    form.focus();
   }
 }
 
