@@ -2,7 +2,7 @@ import {nanoid} from 'nanoid';
 import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
-import RecipeForm from '../components/RecipeForm/RecipeForm.js';
+import RecipeForm from '../components/recipeForm/RecipeForm.js';
 import {getFromLocal, setToLocal} from '../lib/localStorage.js';
 
 export default function Home() {

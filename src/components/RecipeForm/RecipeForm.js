@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import ScreenReaderOnly from './ScreenReaderOnly.js';
+import ScreenReaderOnly from '../screenReaderOnly/ScreenReaderOnly';
 
 export default function RecipeForm({onCreateRecipe}) {
   return (

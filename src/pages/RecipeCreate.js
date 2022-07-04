@@ -1,7 +1,20 @@
+import styled from 'styled-components';
+
+import NewRecipeForm from '../components/newRecipeForm/NewRecipeForm';
+
 export default function RecipeCreate() {
   return (
-    <>
-      <h1>New Recipe</h1>
-    </>
+    <Container>
+      <Headline>New Recipe</Headline>
+      <NewRecipeForm />
+    </Container>
   );
 }
+
+const Container = styled.main`
+  padding: 30px;
+`;
+
+const Headline = styled.h1`
+  text-align: center;
+`;
