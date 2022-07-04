@@ -32,13 +32,14 @@ export default function NewRecipeForm() {
 
       <br></br>
       <IngredientsForm onAddIngredients={addIngredients} />
-
+      <br></br>
       <Scroller>
         {ingredients.map((ingredient, id) => (
           <IngredientItem key={id}>{ingredient.name}</IngredientItem>
         ))}
       </Scroller>
 
+      <br></br>
       <Button type="submit">Submit</Button>
     </CreateForm>
   );
