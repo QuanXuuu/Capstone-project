@@ -16,11 +16,10 @@ export default function NewRecipeForm() {
       <CreateLabel htmlFor="name">Add name:</CreateLabel>
       <input id="name" name="name" placeholder="Thai curry soup" />
 
-      <CreateLabel htmlFor="prepTime">Add prepTime:</CreateLabel>
-      <div>
-        <input type="number" id="prepTime" name="prepTime" placeholder="30" />
-        <span>mins</span>
-      </div>
+      <CreateLabel htmlFor="prepTime">
+        Add prepTime<small>(mins)</small>:
+      </CreateLabel>
+      <input type="number" id="prepTime" name="prepTime" placeholder="30" />
 
       <CreateLabel htmlFor="categories">Add categories:</CreateLabel>
       <CreateSelect>
