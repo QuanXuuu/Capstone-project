@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import NewRecipeForm from '../components/newRecipeForm/NewRecipeForm';
+import RecipeForm from '../components/recipeForm/RecipeForm';
 
 export default function RecipeCreate() {
   return (
     <Container>
       <Headline>New Recipe</Headline>
-      <NewRecipeForm />
+      <RecipeForm />
     </Container>
   );
 }

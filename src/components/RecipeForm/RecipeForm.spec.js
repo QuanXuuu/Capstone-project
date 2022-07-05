@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import RecipeForm from './RecipeForm.js';
+import RecipeForm from './RecipeForm.js.js';
 
 describe('RecipeForm', () => {
   it('is an accessible form', () => {

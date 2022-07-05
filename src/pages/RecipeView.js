@@ -7,8 +7,8 @@ export default function RecipeView() {
       <CardContainder>
         <CardHeader>Name:</CardHeader>
         <p>Preptime:</p>
-        <p>Categories:</p>
-        <p>ingredients:</p>
+        <p>Category:</p>
+        <p>Ingredients:</p>
         <ul>
           <li>ingredient 1</li>
           <li>ingredient 2</li>
