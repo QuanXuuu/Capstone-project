@@ -2,16 +2,37 @@ import styled from 'styled-components';
 
 export default function RecipeView() {
   return (
-    <Container>
-      <Headline>Recipe View</Headline>
-    </Container>
+    <PageContainer>
+      <PageHeadline>Recipe View</PageHeadline>
+      <CardContainder>
+        <CardHeader>Name:</CardHeader>
+        <p>Preptime:</p>
+        <p>Categories:</p>
+        <p>ingredients:</p>
+        <ul>
+          <li>ingredient 1</li>
+          <li>ingredient 2</li>
+        </ul>
+      </CardContainder>
+    </PageContainer>
   );
 }
 
-const Container = styled.main`
+const PageContainer = styled.main`
   padding: 30px;
 `;
 
-const Headline = styled.h1`
+const PageHeadline = styled.h1`
+  text-align: center;
+`;
+
+const CardContainder = styled.div`
+  background-color: whitesmoke;
+  border: 1px solid gray;
+  border-radius: 5%;
+  padding: 10px;
+`;
+
+const CardHeader = styled.h2`
   text-align: center;
 `;
