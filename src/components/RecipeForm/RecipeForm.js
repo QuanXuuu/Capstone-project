@@ -1,13 +1,13 @@
 import {nanoid} from 'nanoid';
-import {useState /*useEffect*/} from 'react';
+import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
-//import {getFromLocal, setToLocal} from '../../lib/localStorage.js';
+import {getFromLocal, setToLocal} from '../../lib/localStorage.js';
 import IngredientsForm from '../ingredientsForm/IngredientsForm';
 
 export default function RecipeForm() {
   const [ingredients, setIngredients] = useState([]);
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? []);
 
   function addIngredients(ingredient) {
     setIngredients([...ingredients, ingredient]);
@@ -16,15 +16,14 @@ export default function RecipeForm() {
   function addRecipe(recipe) {
     setRecipes([...recipes, recipe]);
   }
-  // const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? []);
 
-  // useEffect(() => setToLocal('recipes', recipes), [recipes]);
+  useEffect(() => setToLocal('recipes', recipes), [recipes]);
 
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const {name, prepTime, category} = form.elements;
-    const recipe = {id: nanoid, name: name.value, prepTime: prepTime.value, category: category.value, ingredients};
+    const recipe = {id: nanoid(), name: name.value, prepTime: prepTime.value, category: category.value, ingredients};
     addRecipe(recipe);
     setIngredients([]);
     form.reset();
