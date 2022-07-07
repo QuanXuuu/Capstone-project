@@ -1,10 +1,15 @@
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function RecipeCard({id, name, prepTime, category, image}) {
   return (
     <CardWrapper>
       <CardImage src={image} alt={name} />
-      <CardHeader>{name}</CardHeader>
+      <CardHeader>
+        <Link key={id} to={`/${id}`}>
+          {name}
+        </Link>
+      </CardHeader>
       <p>
         PrepTime: {prepTime}
         <small>mins</small>

@@ -1,4 +1,4 @@
-This is an App to save your favorite home-cooking recipes and restaurants.
+This is an App to save your favorite home-cooking recipes.
 
 Tech stack used:
 

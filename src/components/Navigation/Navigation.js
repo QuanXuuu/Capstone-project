@@ -5,7 +5,7 @@ export default function Navigation() {
   return (
     <NavContainer>
       <LinkButton to="/">Home</LinkButton>
-      <LinkButton to="/recipes/new">Add Recipe</LinkButton>
+      <LinkButton to="/new">Add Recipe</LinkButton>
     </NavContainer>
   );
 }
