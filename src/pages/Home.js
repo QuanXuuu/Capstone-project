@@ -18,7 +18,8 @@ export default function Home() {
     <Container>
       <Headline>Yumme</Headline>
       <SubHeadline>Your digital recipe book</SubHeadline>
-      <Card>{recipeCards}</Card>
+
+      <CardContainer>{recipeCards}</CardContainer>
     </Container>
   );
 }
@@ -37,6 +38,10 @@ const SubHeadline = styled.h2`
   font-weight: 300;
 `;
 
-const Card = styled.div`
+const CardContainer = styled.div`
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 20px;
 `;

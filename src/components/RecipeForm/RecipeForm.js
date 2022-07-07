@@ -42,10 +42,10 @@ export default function RecipeForm() {
 
       <CreateLabel htmlFor="category">Select category:</CreateLabel>
       <CreateSelect id="category" name="category">
-        <option value="vegetarian">Vegetarian</option>
-        <option value="fish">Fish</option>
-        <option value="meat">Meat</option>
-        <option value="dessert">Dessert</option>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Fish">Fish</option>
+        <option value="Meat">Meat</option>
+        <option value="Dessert">Dessert</option>
       </CreateSelect>
 
       <br></br>

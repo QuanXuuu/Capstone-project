@@ -3,7 +3,7 @@
     "id": "eqEVrqJEI4mfdHXiqwcTH",
     "name": "Thai curry soup with toufu",
     "prepTime": "15",
-    "category": "vegetarian",
+    "category": "Vegetarian",
     "ingredients": [
       "300g Toufu",
       "3Tbsp Thai curry paste",
@@ -18,7 +18,7 @@
     "id": "IMhEJEga-61VwSh1BSWUx",
     "name": "Bibimbap",
     "prepTime": "50",
-    "category": "meat",
+    "category": "Meat",
     "ingredients": [
       "200g Beef",
       "250g spinach",
@@ -34,7 +34,7 @@
     "id": "py_iqZNo3vbOrwB2_ao1Q",
     "name": "Chinese dumpling",
     "prepTime": "60",
-    "category": "meat",
+    "category": "Meat",
     "ingredients": [
       "500g Ground pork",
       "1kg Green leafy vegetable",
@@ -43,13 +43,13 @@
       "1cup Oil",
       "3packages Dumpling wrappers"
     ],
-    "imgURL": "https://images.unsplash.com/photo-1589047133531-570405874c6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZHVtcGxpbmdzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60"
+    "imgURL": "https://images.unsplash.com/photo-1626322751504-930506dd41ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZHVtcGxpbmdzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60"
   },
   {
     "id": "ZR15tupMnNd3mrCw9_YNa",
     "name": "Lemon butter fish",
     "prepTime": "15",
-    "category": "fish",
+    "category": "Fish",
     "ingredients": [
       "1 medium Lemon",
       "400g Fish fillets",
@@ -63,7 +63,7 @@
     "id": "jx1Y9OsTbx5tcViu2FkXy",
     "name": "Double Chocolate Muffins",
     "prepTime": "20",
-    "category": "dessert",
+    "category": "Dessert",
     "ingredients": [
       "250g Flour",
       "150g sugar",

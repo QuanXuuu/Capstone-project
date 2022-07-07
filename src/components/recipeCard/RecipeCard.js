@@ -6,10 +6,10 @@ export default function RecipeCard({id, name, prepTime, category, image}) {
       <CardImage src={image} alt={name} />
       <CardHeader>{name}</CardHeader>
       <p>
-        {prepTime}
+        PrepTime: {prepTime}
         <small>mins</small>
       </p>
-      <p> {category}</p>
+      <p> Category: {category}</p>
     </CardWrapper>
   );
 }
@@ -19,6 +19,7 @@ const CardWrapper = styled.div`
   border-radius: 1rem;
   margin: 20px 0;
   box-shadow: 1rem 0.5rem 1rem #e6e6e6;
+  max-width: 300px;
 `;
 
 const CardHeader = styled.header`
@@ -27,6 +28,8 @@ const CardHeader = styled.header`
 `;
 
 const CardImage = styled.img`
-  max-width: 270px;
-  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
 `;
