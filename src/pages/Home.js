@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import RecipeCard from '../components/recipeCard/RecipeCard';
+import RecipeCard from '../components/RecipeCard/RecipeCard';
 import recipes from '../data/recipes.json';
 
 export default function Home() {

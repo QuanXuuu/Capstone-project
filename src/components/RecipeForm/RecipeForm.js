@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 import {getFromLocal, setToLocal} from '../../lib/localStorage.js';
-import IngredientsForm from '../ingredientsForm/IngredientsForm';
+import IngredientsForm from '../IngredientsForm/IngredientsForm';
 
 export default function RecipeForm() {
   const [ingredients, setIngredients] = useState([]);

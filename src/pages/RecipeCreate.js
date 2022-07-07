@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import RecipeForm from '../components/recipeForm/RecipeForm.js';
+import RecipeForm from '../components/RecipeForm/RecipeForm.js';
 
 export default function RecipeCreate() {
   return (

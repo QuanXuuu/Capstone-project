@@ -1,6 +1,6 @@
 import {Routes, Route} from 'react-router-dom';
 
-import Navigation from './components/navigation/Navigation.js';
+import Navigation from './components/Navigation/Navigation.js';
 import Home from './pages/Home';
 import RecipeCreate from './pages/RecipeCreate';
 
