@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
 import RecipeCard from '../components/RecipeCard/RecipeCard';
-import recipes from '../data/recipes.json';
+import {getFromLocal} from '../lib/localStorage';
 
 export default function Home() {
+  const recipes = getFromLocal('recipes');
+
   const recipeCards = recipes.map(recipe => (
     <RecipeCard
       key={recipe.id}
+      id={recipe.id}
       image={recipe.imgURL}
       name={recipe.name}
       prepTime={recipe.prepTime}

@@ -4,9 +4,9 @@ import styled from 'styled-components';
 export default function RecipeCard({id, name, prepTime, category, image}) {
   return (
     <CardWrapper>
-      <CardImage src={image} alt={name} />
+      <CardImage src={image} alt={`Picture of a ${name}`} />
       <CardHeader>
-        <Link key={id} to={`/${id}`}>
+        <Link key={id} to={`/recipes/${id}`}>
           {name}
         </Link>
       </CardHeader>

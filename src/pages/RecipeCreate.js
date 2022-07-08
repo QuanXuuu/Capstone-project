@@ -12,7 +12,7 @@ export default function RecipeCreate() {
 }
 
 const Container = styled.main`
-  padding: 30px;
+  padding: 1rem;
 `;
 
 const Headline = styled.h1`

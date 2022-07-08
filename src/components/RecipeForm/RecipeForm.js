@@ -1,11 +1,13 @@
 import {nanoid} from 'nanoid';
 import {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {getFromLocal, setToLocal} from '../../lib/localStorage.js';
 import IngredientsForm from '../IngredientsForm/IngredientsForm';
 
 export default function RecipeForm() {
+  const navigate = useNavigate();
   const [ingredients, setIngredients] = useState([]);
   const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? []);
 
@@ -26,6 +28,12 @@ export default function RecipeForm() {
     const recipe = {id: nanoid(), name: name.value, prepTime: prepTime.value, category: category.value, ingredients};
     addRecipe(recipe);
     setIngredients([]);
+
+    setToLocal('recipes', [...recipes, recipe]);
+    console.log(recipes);
+    console.log(recipe);
+
+    navigate('/recipes/' + recipe.id);
     form.reset();
     name.focus();
   }
@@ -67,6 +75,7 @@ const CreateForm = styled.form`
   display: grid;
   gap: 6px;
   grid-template-columns: auto;
+  margin-left: 2em;
 `;
 
 const CreateLabel = styled.label`

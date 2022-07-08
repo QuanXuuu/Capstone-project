@@ -5,7 +5,7 @@ export default function Navigation() {
   return (
     <NavContainer>
       <LinkButton to="/">Home</LinkButton>
-      <LinkButton to="/new">Add Recipe</LinkButton>
+      <LinkButton to="/recipes/new">Add Recipe</LinkButton>
     </NavContainer>
   );
 }
@@ -20,7 +20,7 @@ const LinkButton = styled(NavLink)`
   border: 1px solid grey;
   border-radius: 8px;
   color: black;
-  margin: 0.5rem;
+  margin: 1rem;
 
   &.active {
     background-color: rgb(70, 130, 180);
