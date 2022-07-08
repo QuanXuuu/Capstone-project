@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import {getFromLocal, setToLocal} from '../../lib/localStorage.js';
 import IngredientsForm from '../IngredientsForm/IngredientsForm';
 
-export default function RecipeForm() {
+export default function RecipeForm(onAddNewRecipes) {
   const navigate = useNavigate();
   const [ingredients, setIngredients] = useState([]);
   const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? []);
@@ -30,8 +30,6 @@ export default function RecipeForm() {
     setIngredients([]);
 
     setToLocal('recipes', [...recipes, recipe]);
-    console.log(recipes);
-    console.log(recipe);
 
     navigate('/recipes/' + recipe.id);
     form.reset();
@@ -42,12 +40,10 @@ export default function RecipeForm() {
     <CreateForm onSubmit={handleSubmit}>
       <CreateLabel htmlFor="name">Add name:</CreateLabel>
       <input id="name" name="name" placeholder="Thai curry soup" />
-
       <CreateLabel htmlFor="prepTime">
         Add prepTime<small>(mins)</small>:
       </CreateLabel>
       <input type="number" id="prepTime" name="prepTime" placeholder="30" />
-
       <CreateLabel htmlFor="category">Select category:</CreateLabel>
       <CreateSelect id="category" name="category">
         <option value="Vegetarian">Vegetarian</option>
@@ -56,26 +52,25 @@ export default function RecipeForm() {
         <option value="Dessert">Dessert</option>
       </CreateSelect>
 
-      <br></br>
       <IngredientsForm onAddIngredients={addIngredients} />
-      <br></br>
-      <Scroller>
+
+      <Scroller role="list">
         {ingredients.map((ingredient, id) => (
           <IngredientItem key={id}>{ingredient}</IngredientItem>
         ))}
       </Scroller>
 
-      <br></br>
       <Button type="submit">Submit</Button>
     </CreateForm>
   );
 }
 
 const CreateForm = styled.form`
-  display: grid;
-  gap: 6px;
-  grid-template-columns: auto;
-  margin-left: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 400px;
 `;
 
 const CreateLabel = styled.label`

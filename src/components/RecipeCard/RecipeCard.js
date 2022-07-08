@@ -22,19 +22,18 @@ export default function RecipeCard({id, name, prepTime, category, image}) {
 const CardWrapper = styled.div`
   padding: 1rem;
   border-radius: 1rem;
-  margin: 20px 0;
+  margin: 0 auto;
   box-shadow: 1rem 0.5rem 1rem #e6e6e6;
-  max-width: 300px;
+  max-width: 375px;
 `;
 
 const CardHeader = styled.header`
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 `;
 
 const CardImage = styled.img`
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: 100%;
 `;

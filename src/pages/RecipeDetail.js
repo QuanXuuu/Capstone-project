@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {getFromLocal} from '../lib/localStorage';
 
 export default function RecipeDetail() {
-  let params = useParams();
+  const params = useParams();
   const local = getFromLocal('recipes');
 
   const recipeData = local.filter(singleRecipe => singleRecipe.id === params.id);
@@ -29,9 +29,9 @@ export default function RecipeDetail() {
 const DetailCard = styled.div`
   padding: 1rem;
   border-radius: 1rem;
-  margin: 30px;
+  margin: 0 auto;
   box-shadow: 1rem 0.5rem 1rem #e6e6e6;
-  max-width: 300px;
+  max-width: 375px;
 `;
 
 const DetailHeader = styled.h1`
@@ -47,8 +47,7 @@ const DetailIngredientsList = styled.h2`
 
 const DetailImage = styled.img`
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: 100%;
   margin-top: 20px;
 `;

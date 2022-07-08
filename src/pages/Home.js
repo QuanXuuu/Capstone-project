@@ -29,6 +29,7 @@ export default function Home() {
 
 const Container = styled.main`
   padding: 30px;
+  margin: 0 auto;
 `;
 
 const Headline = styled.h1`
@@ -42,7 +43,7 @@ const SubHeadline = styled.h2`
 `;
 
 const CardContainer = styled.div`
-  margin-top: 40px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
