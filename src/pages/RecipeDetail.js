@@ -1,3 +1,6 @@
+import {BiCategoryAlt} from 'react-icons/bi';
+import {BsClockHistory} from 'react-icons/bs';
+import {FiAlignJustify} from 'react-icons/fi';
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,11 +14,15 @@ export default function RecipeDetail({recipes}) {
       <DetailHeader>{recipe.name}</DetailHeader>
       <DetailImage src={recipe.imgURL} alt={`Picture of a ${recipe.name}`} />
       <p>
-        PrepTime: {recipe.prepTime}
+        <BsClockHistory /> PrepTime: {recipe.prepTime}
         <small>mins</small>
       </p>
-      <p> Category: {recipe.category}</p>
-      <DetailIngredientsList> Ingredients:</DetailIngredientsList>
+      <p>
+        <BiCategoryAlt /> Category: {recipe.category}
+      </p>
+      <DetailIngredientsList>
+        <FiAlignJustify /> Ingredients:
+      </DetailIngredientsList>
       <ul>{ingredientItems}</ul>
     </DetailCard>
   );

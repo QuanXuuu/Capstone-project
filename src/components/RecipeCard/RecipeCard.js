@@ -1,3 +1,5 @@
+import {BiCategoryAlt} from 'react-icons/bi';
+import {BsClockHistory} from 'react-icons/bs';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,10 +13,12 @@ export default function RecipeCard({id, name, prepTime, category, image}) {
         </Link>
       </CardHeader>
       <p>
-        PrepTime: {prepTime}
+        <BsClockHistory /> PrepTime: {prepTime}
         <small>mins</small>
       </p>
-      <p> Category: {category}</p>
+      <p>
+        <BiCategoryAlt /> Category: {category}
+      </p>
     </CardWrapper>
   );
 }
