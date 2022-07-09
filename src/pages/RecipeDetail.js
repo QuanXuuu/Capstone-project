@@ -1,25 +1,20 @@
 import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
-import {getFromLocal} from '../lib/localStorage';
-
-export default function RecipeDetail() {
+export default function RecipeDetail({recipes}) {
   const params = useParams();
-  const local = getFromLocal('recipes');
-
-  const recipeData = local.filter(singleRecipe => singleRecipe.id === params.id);
-
-  const ingredientItems = recipeData[0].ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>);
+  const recipe = recipes.filter(recipe => recipe.id === params.id)[0];
+  const ingredientItems = recipe.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>);
 
   return (
     <DetailCard>
-      <DetailHeader>{recipeData[0].name}</DetailHeader>
-      <DetailImage src={recipeData[0].imgURL} alt={`Picture of a ${recipeData[0].name}`} />
+      <DetailHeader>{recipe.name}</DetailHeader>
+      <DetailImage src={recipe.imgURL} alt={`Picture of a ${recipe.name}`} />
       <p>
-        PrepTime: {recipeData[0].prepTime}
+        PrepTime: {recipe.prepTime}
         <small>mins</small>
       </p>
-      <p> Category: {recipeData[0].category}</p>
+      <p> Category: {recipe.category}</p>
       <DetailIngredientsList> Ingredients:</DetailIngredientsList>
       <ul>{ingredientItems}</ul>
     </DetailCard>

@@ -1,25 +1,17 @@
 import {nanoid} from 'nanoid';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
-import {getFromLocal, setToLocal} from '../../lib/localStorage.js';
 import IngredientsForm from '../IngredientsForm/IngredientsForm';
 
-export default function RecipeForm(onAddNewRecipes) {
+export default function RecipeForm({addRecipe}) {
   const navigate = useNavigate();
   const [ingredients, setIngredients] = useState([]);
-  const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? []);
 
   function addIngredients(ingredient) {
     setIngredients([...ingredients, ingredient]);
   }
-
-  function addRecipe(recipe) {
-    setRecipes([...recipes, recipe]);
-  }
-
-  useEffect(() => setToLocal('recipes', recipes), [recipes]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -28,31 +20,27 @@ export default function RecipeForm(onAddNewRecipes) {
     const recipe = {id: nanoid(), name: name.value, prepTime: prepTime.value, category: category.value, ingredients};
     addRecipe(recipe);
     setIngredients([]);
-
-    setToLocal('recipes', [...recipes, recipe]);
-
     navigate('/recipes/' + recipe.id);
-    form.reset();
-    name.focus();
   }
 
   return (
     <CreateForm onSubmit={handleSubmit}>
       <CreateLabel htmlFor="name">Add name:</CreateLabel>
-      <input id="name" name="name" placeholder="Thai curry soup" />
+      <input id="name" name="name" required />
       <CreateLabel htmlFor="prepTime">
         Add prepTime<small>(mins)</small>:
       </CreateLabel>
-      <input type="number" id="prepTime" name="prepTime" placeholder="30" />
+      <input type="number" id="prepTime" name="prepTime" required />
       <CreateLabel htmlFor="category">Select category:</CreateLabel>
       <CreateSelect id="category" name="category">
+        {/* <option value="">--Please select category--</option> */}
         <option value="Vegetarian">Vegetarian</option>
         <option value="Fish">Fish</option>
         <option value="Meat">Meat</option>
         <option value="Dessert">Dessert</option>
       </CreateSelect>
 
-      <IngredientsForm onAddIngredients={addIngredients} />
+      <IngredientsForm addIngredients={addIngredients} />
 
       <Scroller role="list">
         {ingredients.map((ingredient, id) => (

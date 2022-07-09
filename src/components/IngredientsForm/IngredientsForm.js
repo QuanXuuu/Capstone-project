@@ -1,31 +1,30 @@
 import {useState} from 'react';
 import styled from 'styled-components';
 
-export default function IngredientsForm({onAddIngredients}) {
+export default function IngredientsForm({addIngredients}) {
   const [currentIngredient, setCurrentIngredient] = useState('');
 
   function handleChange(event) {
     const ingredientName = event.target.value;
-    setCurrentIngredient(ingredientName);
+
+    if (ingredientName.length > 0) {
+      setCurrentIngredient(ingredientName);
+    }
   }
 
   function addNewIngredient(event) {
     event.preventDefault();
-    onAddIngredients(currentIngredient);
-    setCurrentIngredient('');
+
+    if (currentIngredient.length > 0) {
+      addIngredients(currentIngredient);
+      setCurrentIngredient('');
+    }
   }
 
   return (
     <Container>
       <Label htmlFor="ingredientInput">Add ingredients:</Label>
-      <input
-        maxLength={50}
-        value={currentIngredient}
-        onChange={handleChange}
-        id="ingredientInput"
-        name="ingredient"
-        placeholder="300g Toufu"
-      />
+      <input maxLength={50} value={currentIngredient} onChange={handleChange} id="ingredientInput" name="ingredient" />
       <button onClick={addNewIngredient}>
         <span>+</span>
       </button>

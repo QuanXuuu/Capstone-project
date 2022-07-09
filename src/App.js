@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react';
 import {Routes, Route, Outlet} from 'react-router-dom';
 
 import Navigation from './components/Navigation/Navigation.js';
@@ -8,38 +9,21 @@ import RecipeCreate from './pages/RecipeCreate';
 import RecipeDetail from './pages/RecipeDetail';
 
 export default function App() {
-  const local = getFromLocal('recipes');
+  const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? dbRecipes);
 
-  let localIds = [];
-  let recipes = [];
-
-  if (local == null) {
-    localIds = [];
-  } else if (local.length === 1) {
-    localIds = [local.id];
-    recipes = [local];
-  } else {
-    localIds = local.map(l => l.id);
-    recipes = [...local];
+  function addRecipe(recipe) {
+    setRecipes([...recipes, recipe]);
   }
 
-  dbRecipes.forEach(recipe => {
-    const isAvailable = localIds.includes(recipe.id);
-
-    if (!isAvailable) {
-      recipes.push(recipe);
-    }
-  });
-
-  setToLocal('recipes', recipes);
+  useEffect(() => setToLocal('recipes', recipes), [recipes]);
 
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home recipes={recipes} />} />
         <Route path="/recipes">
-          <Route path="new" element={<RecipeCreate />} />
-          <Route path=":id" element={<RecipeDetail />} />
+          <Route path="new" element={<RecipeCreate addRecipe={addRecipe} />} />
+          <Route path=":id" element={<RecipeDetail recipes={recipes} />} />
         </Route>
       </Routes>
       <Outlet />

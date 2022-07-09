@@ -35,5 +35,5 @@ const CardHeader = styled.header`
 const CardImage = styled.img`
   display: block;
   margin: 0 auto;
-  max-width: 100%;
+  width: 70%;
 `;

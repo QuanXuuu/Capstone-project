@@ -1,24 +1,12 @@
-//import {useState} from 'react';
 import styled from 'styled-components';
 
 import RecipeForm from '../components/RecipeForm/RecipeForm.js';
 
-export default function RecipeCreate() {
-  // const [newrecipes, setNewRecipes] = useState([]);
-  // const [recipes, setRecipes] = useState([]);
-
-  // function addRecipes(recipe) {
-  //   setRecipes([...recipes, recipe]);
-  // }
-
-  // function addNewRecipes(newRecipe) {
-  //   setNewRecipes([...newrecipes, newRecipe]);
-  // }
-
+export default function RecipeCreate({addRecipe}) {
   return (
     <Container>
       <Headline>New Recipe</Headline>
-      <RecipeForm />
+      <RecipeForm addRecipe={addRecipe} />
     </Container>
   );
 }
