@@ -24,11 +24,11 @@ export default function RecipeCard({id, name, prepTime, category, image}) {
 }
 
 const CardWrapper = styled.div`
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 1rem;
   margin: 0 auto;
   box-shadow: 1rem 0.5rem 1rem #e6e6e6;
-  max-width: 375px;
+  width: 300px;
 `;
 
 const CardHeader = styled.header`

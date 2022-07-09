@@ -33,7 +33,7 @@ const DetailCard = styled.div`
   border-radius: 1rem;
   margin: 0 auto;
   box-shadow: 1rem 0.5rem 1rem #e6e6e6;
-  max-width: 375px;
+  max-width: 320px;
 `;
 
 const DetailHeader = styled.h1`

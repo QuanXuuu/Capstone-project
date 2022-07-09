@@ -22,7 +22,7 @@ const LinkButton = styled(NavLink)`
   border: 1px solid grey;
   border-radius: 8px;
   color: black;
-  margin: 1rem;
+  margin: 2rem;
 
   &.active {
     background-color: rgb(70, 130, 180);
