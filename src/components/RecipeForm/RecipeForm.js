@@ -26,14 +26,16 @@ export default function RecipeForm({addRecipe}) {
   return (
     <CreateForm onSubmit={handleSubmit}>
       <CreateLabel htmlFor="name">Add name:</CreateLabel>
-      <input id="name" name="name" required />
+      <input id="name" name="name" autoComplete="off" required />
       <CreateLabel htmlFor="prepTime">
         Add prepTime<small>(mins)</small>:
       </CreateLabel>
       <input type="number" id="prepTime" name="prepTime" required />
       <CreateLabel htmlFor="category">Select category:</CreateLabel>
-      <CreateSelect id="category" name="category">
-        {/* <option value="">--Please select category--</option> */}
+      <CreateSelect id="category" name="category" defaultValue="" required>
+        <option value="" disabled hidden>
+          --Please select category--
+        </option>
         <option value="Vegetarian">Vegetarian</option>
         <option value="Fish">Fish</option>
         <option value="Meat">Meat</option>

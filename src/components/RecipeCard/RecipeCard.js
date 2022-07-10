@@ -33,7 +33,7 @@ const CardWrapper = styled.div`
 
 const CardHeader = styled.header`
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 `;
 
 const CardImage = styled.img`

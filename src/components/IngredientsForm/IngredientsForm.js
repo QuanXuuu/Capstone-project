@@ -24,7 +24,14 @@ export default function IngredientsForm({addIngredients}) {
   return (
     <Container>
       <Label htmlFor="ingredientInput">Add ingredients:</Label>
-      <input maxLength={50} value={currentIngredient} onChange={handleChange} id="ingredientInput" name="ingredient" />
+      <input
+        maxLength={50}
+        value={currentIngredient}
+        onChange={handleChange}
+        id="ingredientInput"
+        name="ingredient"
+        autoComplete="off"
+      />
       <button onClick={addNewIngredient}>
         <span>+</span>
       </button>
