@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 export default function RecipeDetail({recipes}) {
   const params = useParams();
-  const recipe = recipes.filter(recipe => recipe.id === params.id)[0];
+  const recipe = recipes.find(recipe => recipe.id === params.id);
   const ingredientItems = recipe.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>);
 
   return (

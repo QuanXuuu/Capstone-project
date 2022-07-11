@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import IngredientsForm from '../IngredientsForm/IngredientsForm';
 
-export default function RecipeForm({addRecipe}) {
+export default function RecipeForm({onAddRecipe}) {
   const navigate = useNavigate();
   const [ingredients, setIngredients] = useState([]);
 
@@ -18,7 +18,7 @@ export default function RecipeForm({addRecipe}) {
     const form = event.target;
     const {name, prepTime, category} = form.elements;
     const recipe = {id: nanoid(), name: name.value, prepTime: prepTime.value, category: category.value, ingredients};
-    addRecipe(recipe);
+    onAddRecipe(recipe);
     setIngredients([]);
     navigate('/recipes/' + recipe.id);
   }
@@ -42,11 +42,11 @@ export default function RecipeForm({addRecipe}) {
         <option value="Dessert">Dessert</option>
       </CreateSelect>
 
-      <IngredientsForm addIngredients={addIngredients} />
+      <IngredientsForm onAddIngredients={addIngredients} />
 
       <Scroller role="list">
-        {ingredients.map((ingredient, id) => (
-          <IngredientItem key={id}>{ingredient}</IngredientItem>
+        {ingredients.map((ingredient, index) => (
+          <IngredientItem key={index}>{ingredient}</IngredientItem>
         ))}
       </Scroller>
 

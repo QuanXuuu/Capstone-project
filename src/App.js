@@ -22,7 +22,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home recipes={recipes} />} />
         <Route path="/recipes">
-          <Route path="new" element={<RecipeCreate addRecipe={addRecipe} />} />
+          <Route path="new" element={<RecipeCreate onAddRecipe={addRecipe} />} />
           <Route path=":id" element={<RecipeDetail recipes={recipes} />} />
         </Route>
       </Routes>

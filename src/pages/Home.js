@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import RecipeCard from '../components/RecipeCard/RecipeCard';
 
 export default function Home({recipes}) {
-  console.log(recipes);
   const recipeCards = recipes.map(recipe => (
     <RecipeCard
       key={recipe.id}

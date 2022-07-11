@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import styled from 'styled-components';
 
-export default function IngredientsForm({addIngredients}) {
+export default function IngredientsForm({onAddIngredients}) {
   const [currentIngredient, setCurrentIngredient] = useState('');
 
   function handleChange(event) {
@@ -16,7 +16,7 @@ export default function IngredientsForm({addIngredients}) {
     event.preventDefault();
 
     if (currentIngredient.length > 0) {
-      addIngredients(currentIngredient);
+      onAddIngredients(currentIngredient);
       setCurrentIngredient('');
     }
   }
