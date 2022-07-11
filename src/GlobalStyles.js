@@ -13,6 +13,8 @@ export default styled.createGlobalStyle`
     font-size: 1.125rem;
     font-family: 'Roboto Condensed', sans-serif;
     color: rgb(36, 113, 163);
+    background-color: whitesmoke;
+    line-height: 1.5;
   }
 
   button,
