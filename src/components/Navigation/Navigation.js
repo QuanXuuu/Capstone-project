@@ -11,7 +11,7 @@ export default function Navigation() {
 }
 
 const NavContainer = styled.nav`
-  padding: 30px;
+  padding: 20px;
   display: flex;
   justify-content: center;
 `;

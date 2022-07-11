@@ -25,7 +25,7 @@ export default function Home({recipes}) {
 }
 
 const Container = styled.main`
-  padding: 30px;
+  padding: 10px;
   margin: 0 auto;
 `;
 

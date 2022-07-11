@@ -19,6 +19,7 @@ export default function App() {
 
   return (
     <>
+      <Navigation />
       <Routes>
         <Route path="/" element={<Home recipes={recipes} />} />
         <Route path="/recipes">
@@ -27,7 +28,6 @@ export default function App() {
         </Route>
       </Routes>
       <Outlet />
-      <Navigation />
     </>
   );
 }
