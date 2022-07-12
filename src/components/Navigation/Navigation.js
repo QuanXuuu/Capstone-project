@@ -27,7 +27,6 @@ const LinkButton = styled(NavLink)`
   text-decoration: none;
   border: 1px solid rgb(70, 130, 180);
   border-radius: 8px;
-  color: black;
   margin: 2rem;
   color: inherit;
   cursor: pointer;
