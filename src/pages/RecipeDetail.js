@@ -1,3 +1,4 @@
+import {AiTwotoneDelete} from 'react-icons/ai';
 import {BiCategoryAlt} from 'react-icons/bi';
 import {BsClockHistory} from 'react-icons/bs';
 import {FiAlignJustify} from 'react-icons/fi';
@@ -24,6 +25,9 @@ export default function RecipeDetail({recipes}) {
         <FiAlignJustify /> Ingredients:
       </DetailIngredientsList>
       <ul>{ingredientItems}</ul>
+      <ButtonDelete>
+        <AiTwotoneDelete /> Delete
+      </ButtonDelete>
     </DetailCard>
   );
 }
@@ -52,4 +56,20 @@ const DetailImage = styled.img`
   margin: 0 auto;
   max-width: 100%;
   margin-top: 20px;
+`;
+
+const ButtonDelete = styled.button`
+  padding: 10px 20px;
+  margin: 1rem 5rem;
+  border: 1px solid rgb(70, 130, 180);
+  border-radius: 8px;
+  color: inherit;
+  background-color: rgb(224, 255, 255);
+  text-align: center;
+  font-size: 1.2rem;
+
+  :active {
+    background-color: rgb(70, 130, 180);
+    color: white;
+  }
 `;
