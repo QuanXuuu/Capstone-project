@@ -17,7 +17,6 @@ export default function Navigation() {
 }
 
 const NavContainer = styled.nav`
-  padding: 5px;
   display: flex;
   justify-content: center;
   background-color: rgb(224, 255, 255);
@@ -31,6 +30,7 @@ const LinkButton = styled(NavLink)`
   color: black;
   margin: 2rem;
   color: inherit;
+  cursor: pointer;
 
   &.active {
     background-color: rgb(70, 130, 180);
