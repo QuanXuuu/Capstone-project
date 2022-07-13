@@ -9,9 +9,9 @@ import styled from 'styled-components';
 import Dialogue from '../components/Dialogue/Dialogue';
 
 export default function RecipeDetail({recipes, onDeleteRecipe}) {
-  const params = useParams();
+  const {id} = useParams();
   const navigate = useNavigate();
-  const recipe = recipes.find(recipe => recipe.id === params.id);
+  const recipe = recipes.find(recipe => recipe.id === id);
   const ingredientItems = recipe.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>);
 
   const [isDialogueShown, setIsDialogueShown] = useState(false);
@@ -21,7 +21,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
   };
 
   const handleDelete = () => {
-    onDeleteRecipe(params.id);
+    onDeleteRecipe(id);
     navigate('/');
   };
 
