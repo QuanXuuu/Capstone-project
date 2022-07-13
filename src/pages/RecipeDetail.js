@@ -16,14 +16,8 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
 
   const [isDialogueShown, setIsDialogueShown] = useState(false);
 
-  const showDialogue = () => {
-    setIsDialogueShown(true);
-    console.log(isDialogueShown);
-  };
-
-  const hideDialogue = () => {
-    setIsDialogueShown(false);
-    console.log(isDialogueShown);
+  const toggleDialogue = () => {
+    setIsDialogueShown(!isDialogueShown);
   };
 
   const handleDelete = () => {
@@ -47,11 +41,11 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
       </DetailIngredientsList>
       <ul>{ingredientItems}</ul>
 
-      <ButtonDelete onClick={showDialogue}>
+      <ButtonDelete onClick={toggleDialogue}>
         <AiTwotoneDelete /> Delete
       </ButtonDelete>
 
-      {isDialogueShown && <Dialogue onHandleDelete={handleDelete} onHideDialogue={hideDialogue} />}
+      {isDialogueShown && <Dialogue onHandleDelete={handleDelete} onHideDialogue={toggleDialogue} />}
     </DetailCard>
   );
 }
