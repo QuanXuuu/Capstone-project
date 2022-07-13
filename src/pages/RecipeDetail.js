@@ -79,16 +79,16 @@ const DetailImage = styled.img`
 const ButtonDelete = styled.button`
   padding: 10px 20px;
   margin: 1rem 5rem;
-  border: 1px solid rgb(70, 130, 180);
+  border: 1px solid var(--blue);
   border-radius: 8px;
   color: inherit;
-  background-color: rgb(224, 255, 255);
+  background-color: var(--lightcyan);
   text-align: center;
   font-size: 1.2rem;
   cursor: pointer;
 
   :active {
-    background-color: rgb(70, 130, 180);
+    background-color: var(--blue);
     color: white;
   }
 `;

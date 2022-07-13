@@ -19,20 +19,20 @@ export default function Navigation() {
 const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
-  background-color: rgb(224, 255, 255);
+  /* background-color: var(--lightcyan); */
 `;
 
 const LinkButton = styled(NavLink)`
   padding: 10px;
   text-decoration: none;
-  border: 1px solid rgb(70, 130, 180);
+  border: 1px solid var(--lightcyan);
   border-radius: 8px;
   margin: 2rem;
   color: inherit;
   cursor: pointer;
 
   &.active {
-    background-color: rgb(70, 130, 180);
+    background-color: var(--blue);
     color: white;
   }
 `;

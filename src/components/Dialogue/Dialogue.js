@@ -32,7 +32,7 @@ const DialogueWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(224, 255, 255);
+  background-color: var(--lightcyan);
   padding: 40px;
   border-radius: 9px;
 `;
@@ -47,13 +47,13 @@ const ButtonCancel = styled.button`
   color: inherit;
   margin-right: 20px;
   padding: 5px 10px;
-  border: 1px solid rgb(70, 130, 180);
+  border: 1px solid var(--blue);
   border-radius: 8px;
 `;
 const ButtonConfirm = styled.button`
   color: inherit;
   margin-left: 20px;
   padding: 5px 10px;
-  border: 1px solid rgb(70, 130, 180);
+  border: 1px solid var(--blue);
   border-radius: 8px;
 `;
