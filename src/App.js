@@ -15,6 +15,10 @@ export default function App() {
     setRecipes([...recipes, recipe]);
   }
 
+  function deleteRecipe(recipeId) {
+    setRecipes(recipes.filter(recipe => recipe.id !== recipeId));
+  }
+
   useEffect(() => setToLocal('recipes', recipes), [recipes]);
 
   return (
@@ -24,7 +28,7 @@ export default function App() {
         <Route path="/" element={<Home recipes={recipes} />} />
         <Route path="/recipes">
           <Route path="new" element={<RecipeCreate onAddRecipe={addRecipe} />} />
-          <Route path=":id" element={<RecipeDetail recipes={recipes} />} />
+          <Route path=":id" element={<RecipeDetail recipes={recipes} onDeleteRecipe={deleteRecipe} />} />
         </Route>
       </Routes>
       <Outlet />

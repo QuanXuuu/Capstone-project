@@ -1,13 +1,29 @@
+import {useState} from 'react';
+import {AiTwotoneDelete} from 'react-icons/ai';
 import {BiCategoryAlt} from 'react-icons/bi';
 import {BsClockHistory} from 'react-icons/bs';
 import {FiAlignJustify} from 'react-icons/fi';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function RecipeDetail({recipes}) {
-  const params = useParams();
-  const recipe = recipes.find(recipe => recipe.id === params.id);
+import Dialogue from '../components/Dialogue/Dialogue';
+
+export default function RecipeDetail({recipes, onDeleteRecipe}) {
+  const {id} = useParams();
+  const navigate = useNavigate();
+  const recipe = recipes.find(recipe => recipe.id === id);
   const ingredientItems = recipe.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>);
+
+  const [isDialogueShown, setIsDialogueShown] = useState(false);
+
+  const toggleDialogue = () => {
+    setIsDialogueShown(!isDialogueShown);
+  };
+
+  const handleDelete = () => {
+    onDeleteRecipe(id);
+    navigate('/');
+  };
 
   return (
     <DetailCard>
@@ -24,6 +40,12 @@ export default function RecipeDetail({recipes}) {
         <FiAlignJustify /> Ingredients:
       </DetailIngredientsList>
       <ul>{ingredientItems}</ul>
+
+      <ButtonDelete onClick={toggleDialogue}>
+        <AiTwotoneDelete /> Delete
+      </ButtonDelete>
+
+      {isDialogueShown && <Dialogue onHandleDelete={handleDelete} onHideDialogue={toggleDialogue} />}
     </DetailCard>
   );
 }
@@ -52,4 +74,21 @@ const DetailImage = styled.img`
   margin: 0 auto;
   max-width: 100%;
   margin-top: 20px;
+`;
+
+const ButtonDelete = styled.button`
+  padding: 10px 20px;
+  margin: 1rem 5rem;
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  color: inherit;
+  background-color: var(--lightcyan);
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  :active {
+    background-color: var(--blue);
+    color: white;
+  }
 `;
