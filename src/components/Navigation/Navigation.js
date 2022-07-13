@@ -19,7 +19,6 @@ export default function Navigation() {
 const NavContainer = styled.nav`
   display: flex;
   justify-content: center;
-  /* background-color: var(--lightcyan); */
 `;
 
 const LinkButton = styled(NavLink)`
