@@ -7,6 +7,7 @@ import {setToLocal, getFromLocal} from './lib/localStorage.js';
 import Home from './pages/Home';
 import RecipeCreate from './pages/RecipeCreate';
 import RecipeDetail from './pages/RecipeDetail';
+import RecipeEdit from './pages/RecipeEdit.js';
 
 export default function App() {
   const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? dbRecipes);
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/recipes">
           <Route path="new" element={<RecipeCreate onAddRecipe={addRecipe} />} />
           <Route path=":id" element={<RecipeDetail recipes={recipes} onDeleteRecipe={deleteRecipe} />} />
+          <Route path=":id/edit" element={<RecipeEdit recipes={recipes} />} />
         </Route>
       </Routes>
       <Outlet />
