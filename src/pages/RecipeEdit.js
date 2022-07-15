@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {FaSave} from 'react-icons/fa';
 import {MdCancel} from 'react-icons/md';
+import {RiDeleteBin5Fill} from 'react-icons/ri';
 import {useParams, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -9,11 +10,9 @@ import IngredientsForm from '../components/IngredientsForm/IngredientsForm';
 export default function RecipeEdit({recipes, onEditRecipe}) {
   const {id} = useParams();
   const navigate = useNavigate();
-
   const recipe = recipes.find(recipe => recipe.id === id);
 
   const [editedRecipe, setEditedRecipe] = useState({...recipe});
-
   const [ingredients, setIngredients] = useState([...editedRecipe.ingredients]);
 
   function addIngredients(ingredient) {
@@ -66,12 +65,24 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
     event.preventDefault();
     const otherRecipes = recipes.filter(recipe => recipe.id !== id);
 
-    onEditRecipe(otherRecipes, editedRecipe);
+    onEditRecipe(otherRecipes, {
+      id: editedRecipe.id,
+      name: editedRecipe.name,
+      prepTime: editedRecipe.prepTime,
+      category: editedRecipe.category,
+      ingredients: ingredients,
+      imgURL: editedRecipe.imgURL,
+    });
+
     navigate(`/recipes/${id}`);
   };
 
   const handleRedirect = () => {
     navigate(`/recipes/${id}`);
+  };
+
+  const handleDeleteIngredient = index => {
+    setIngredients([...ingredients.filter((_, i) => i !== index)]);
   };
 
   return (
@@ -91,9 +102,6 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
       />
       <EditLabel htmlFor="category">Select category:</EditLabel>
       <EditSelect id="category" name="category" defaultValue={recipe.category} onChange={editRecipeCategory} required>
-        <option value="" disabled hidden>
-          --Please select category--
-        </option>
         <option value="Vegetarian">Vegetarian</option>
         <option value="Fish">Fish</option>
         <option value="Meat">Meat</option>
@@ -104,7 +112,12 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
 
       <Scroller role="list">
         {ingredients.map((ingredient, index) => (
-          <IngredientItem key={index}>{ingredient}</IngredientItem>
+          <IngredientItem key={index}>
+            <ButtonDelete type="button" onClick={() => handleDeleteIngredient(index)}>
+              <RiDeleteBin5Fill />
+            </ButtonDelete>
+            {ingredient}
+          </IngredientItem>
         ))}
       </Scroller>
 
@@ -144,6 +157,14 @@ const Scroller = styled.ul`
 
 const IngredientItem = styled.li`
   list-style: none;
+`;
+
+const ButtonDelete = styled.button`
+  background-color: whitesmoke;
+  border: none;
+  color: inherit;
+  margin-right: 0.6rem;
+  cursor: pointer;
 `;
 
 const ButtonWrapper = styled.div`
