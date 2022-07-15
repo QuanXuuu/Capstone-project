@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 import Dialogue from '../components/Dialogue/Dialogue';
 
-export default function RecipeDetail({recipes, onDeleteRecipe}) {
+export default function RecipeDetail({recipes, onDeleteRecipe, onEditRecipe}) {
   const {id} = useParams();
   const navigate = useNavigate();
   const recipe = recipes.find(recipe => recipe.id === id);
@@ -27,6 +27,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
   };
 
   const handleRedirect = () => {
+    onEditRecipe(recipe);
     navigate(`/recipes/${id}/edit`);
   };
 
