@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {FaSave} from 'react-icons/fa';
 import {MdCancel} from 'react-icons/md';
 import {useParams, useNavigate} from 'react-router-dom';
@@ -5,36 +6,91 @@ import styled from 'styled-components';
 
 import IngredientsForm from '../components/IngredientsForm/IngredientsForm';
 
-export default function RecipeEdit({recipes, editRecipe}) {
+export default function RecipeEdit({recipes, onEditRecipe}) {
   const {id} = useParams();
   const navigate = useNavigate();
+
+  const recipe = recipes.find(recipe => recipe.id === id);
+
+  const [editedRecipe, setEditedRecipe] = useState({...recipe});
+
+  const [ingredients, setIngredients] = useState([...editedRecipe.ingredients]);
+
+  function addIngredients(ingredient) {
+    setIngredients([...ingredients, ingredient]);
+
+    setEditedRecipe({
+      id: editedRecipe.id,
+      name: editedRecipe.name,
+      prepTime: editedRecipe.prepTime,
+      category: editedRecipe.category,
+      ingredients: [...ingredients, ingredient],
+      imgURL: editedRecipe.imgURL,
+    });
+  }
+
+  const editRecipeName = event => {
+    setEditedRecipe({
+      id: editedRecipe.id,
+      name: event.target.value,
+      prepTime: editedRecipe.prepTime,
+      category: editedRecipe.category,
+      ingredients: ingredients,
+      imgURL: editedRecipe.imgURL,
+    });
+  };
+
+  const editRecipePrepTime = event => {
+    setEditedRecipe({
+      id: editedRecipe.id,
+      name: editedRecipe.name,
+      prepTime: event.target.value,
+      category: editedRecipe.category,
+      ingredients: ingredients,
+      imgURL: editedRecipe.imgURL,
+    });
+  };
+
+  const editRecipeCategory = event => {
+    setEditedRecipe({
+      id: editedRecipe.id,
+      name: editedRecipe.name,
+      prepTime: editedRecipe.prepTime,
+      category: event.target.value,
+      ingredients: ingredients,
+      imgURL: editedRecipe.imgURL,
+    });
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const otherRecipes = recipes.filter(recipe => recipe.id !== id);
+
+    onEditRecipe(otherRecipes, editedRecipe);
+    navigate(`/recipes/${id}`);
+  };
 
   const handleRedirect = () => {
     navigate(`/recipes/${id}`);
   };
 
-  //   const recipe = recipes.find(recipe => recipe.id === id);
-
-  console.log(editRecipe);
-
-  const handleChange = event => {
-    event.preventDefault();
-    console.log(editRecipe);
-    console.log(event.target.value);
-    editRecipe.name = event.target.value;
-    console.log(editRecipe);
-  };
-
   return (
     <EditForm>
       <EditLabel htmlFor="name">Add name:</EditLabel>
-      <input id="name" name="name" autoComplete="off" value={editRecipe.name} onChange={handleChange} required />
+      <input id="name" name="name" autoComplete="off" defaultValue={recipe.name} onChange={editRecipeName} required />
       <EditLabel htmlFor="prepTime">
         Add prepTime<small>(mins)</small>:
       </EditLabel>
-      <input type="number" id="prepTime" name="prepTime" value={editRecipe.prepTime} required />
+      <input
+        type="number"
+        id="prepTime"
+        name="prepTime"
+        defaultValue={recipe.prepTime}
+        onChange={editRecipePrepTime}
+        required
+      />
       <EditLabel htmlFor="category">Select category:</EditLabel>
-      <EditSelect id="category" name="category" defaultValue="" value={editRecipe.category} required>
+      <EditSelect id="category" name="category" defaultValue={recipe.category} onChange={editRecipeCategory} required>
         <option value="" disabled hidden>
           --Please select category--
         </option>
@@ -44,10 +100,10 @@ export default function RecipeEdit({recipes, editRecipe}) {
         <option value="Dessert">Dessert</option>
       </EditSelect>
 
-      <IngredientsForm value={editRecipe.ingredients} />
+      <IngredientsForm value={ingredients} onAddIngredients={addIngredients} />
 
       <Scroller role="list">
-        {editRecipe.ingredients.map((ingredient, index) => (
+        {ingredients.map((ingredient, index) => (
           <IngredientItem key={index}>{ingredient}</IngredientItem>
         ))}
       </Scroller>
@@ -56,7 +112,7 @@ export default function RecipeEdit({recipes, editRecipe}) {
         <Button type="button" onClick={handleRedirect}>
           <MdCancel /> Cancel
         </Button>
-        <Button type="submit">
+        <Button type="submit" onClick={handleSubmit}>
           <FaSave /> Save
         </Button>
       </ButtonWrapper>

@@ -16,6 +16,7 @@ export default function IngredientsForm({onAddIngredients}) {
     event.preventDefault();
 
     if (currentIngredient.length > 0) {
+      console.log(currentIngredient);
       onAddIngredients(currentIngredient);
       setCurrentIngredient('');
     }
