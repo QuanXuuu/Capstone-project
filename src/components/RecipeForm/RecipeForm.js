@@ -16,8 +16,15 @@ export default function RecipeForm({onAddRecipe}) {
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    const {name, prepTime, category} = form.elements;
-    const recipe = {id: nanoid(), name: name.value, prepTime: prepTime.value, category: category.value, ingredients};
+    const {name, prepTime, category, imgURL} = form.elements;
+    const recipe = {
+      id: nanoid(),
+      name: name.value,
+      prepTime: prepTime.value,
+      category: category.value,
+      ingredients,
+      imgURL: imgURL.value,
+    };
     onAddRecipe(recipe);
     setIngredients([]);
     navigate('/recipes/' + recipe.id);
@@ -31,6 +38,8 @@ export default function RecipeForm({onAddRecipe}) {
         Add prepTime<small>(mins)</small>:
       </CreateLabel>
       <input type="number" id="prepTime" name="prepTime" required />
+      <CreateLabel htmlFor="imgURL">Add image:</CreateLabel>
+      <input id="imgURL" name="imgURL" autoComplete="off" placeholder="https://unsplash.com/" required />
       <CreateLabel htmlFor="category">Select category:</CreateLabel>
       <CreateSelect id="category" name="category" defaultValue="" required>
         <option value="" disabled hidden>
