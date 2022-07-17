@@ -16,8 +16,7 @@ export default function Home({recipes}) {
 
   return (
     <Container>
-      <Headline>Yumme</Headline>
-      <SubHeadline>Your digital recipe book</SubHeadline>
+      <Headline>Your digital recipe book</Headline>
 
       <CardContainer>{recipeCards}</CardContainer>
     </Container>
@@ -31,13 +30,9 @@ const Container = styled.main`
 
 const Headline = styled.h1`
   text-align: center;
-`;
-
-const SubHeadline = styled.h2`
-  margin-top: -10px;
-  margin-bottom: 50px;
-  text-align: center;
-  font-weight: 300;
+  margin: 2.5em 0 1em 0;
+  font-weight: 400;
+  font-size: 2rem;
 `;
 
 const CardContainer = styled.div`
@@ -46,5 +41,5 @@ const CardContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   overflow-y: auto;
-  gap: 20px;
+  gap: 30px;
 `;

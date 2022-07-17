@@ -1,37 +1,79 @@
-import {AiTwotoneHome} from 'react-icons/ai';
-import {AiFillFolderAdd} from 'react-icons/ai';
+import {IoMdAddCircle} from 'react-icons/io';
+import {MdOutlineFoodBank} from 'react-icons/md';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Navigation() {
   return (
     <NavContainer>
-      <LinkButton to="/">
-        <AiTwotoneHome /> Home
-      </LinkButton>
-      <LinkButton to="/recipes/new">
-        <AiFillFolderAdd /> Add Recipe
-      </LinkButton>
+      <Nav>
+        <StyledNavLink to="/">
+          <LogoContainer>
+            <MdOutlineFoodBank id="logo-home" />
+            <LogoSpan> YUMME</LogoSpan>
+          </LogoContainer>
+        </StyledNavLink>
+
+        <StyledNavLink to="/recipes/new">
+          <AddContainer>
+            <IoMdAddCircle id="logo-add" />
+            <AddSpan>Add Recipe</AddSpan>
+          </AddContainer>
+        </StyledNavLink>
+      </Nav>
     </NavContainer>
   );
 }
 
 const NavContainer = styled.nav`
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 1.5rem;
 `;
 
-const LinkButton = styled(NavLink)`
-  padding: 10px;
+const Nav = styled.div`
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  background-color: var(--blue);
+`;
+
+const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  border: 1px solid var(--lightcyan);
   border-radius: 8px;
   margin: 2rem;
-  color: inherit;
+  color: white;
   cursor: pointer;
 
-  &.active {
-    background-color: var(--blue);
-    color: white;
+  #logo-home {
+    font-size: 4rem;
   }
+  #logo-add {
+    font-size: 2rem;
+  }
+`;
+
+const LogoSpan = styled.span`
+  font-size: 1.8rem;
+  padding-top: 15px;
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const AddContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const AddSpan = styled.span`
+  font-size: 1rem;
 `;

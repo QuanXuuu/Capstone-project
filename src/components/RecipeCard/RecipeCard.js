@@ -37,7 +37,7 @@ const CardWrapper = styled.div`
 
 const CardHeader = styled.header`
   font-size: 1.5rem;
-  margin-top: 2rem;
+  margin: 2rem;
   text-align: center;
 `;
 
