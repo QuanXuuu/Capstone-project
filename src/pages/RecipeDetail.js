@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {AiTwotoneDelete} from 'react-icons/ai';
+import {AiTwotoneEdit} from 'react-icons/ai';
 import {BiCategoryAlt} from 'react-icons/bi';
 import {BsClockHistory} from 'react-icons/bs';
 import {FiAlignJustify} from 'react-icons/fi';
@@ -25,6 +26,10 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
     navigate('/');
   };
 
+  const handleRedirect = () => {
+    navigate(`/recipes/${id}/edit`);
+  };
+
   return (
     <DetailCard>
       <DetailHeader>{recipe.name}</DetailHeader>
@@ -41,9 +46,15 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
       </DetailIngredientsList>
       <ul>{ingredientItems}</ul>
 
-      <ButtonDelete onClick={toggleDialogue}>
-        <AiTwotoneDelete /> Delete
-      </ButtonDelete>
+      <ButtonContainer>
+        <Button onClick={toggleDialogue}>
+          <AiTwotoneDelete /> Delete
+        </Button>
+
+        <Button onClick={handleRedirect}>
+          <AiTwotoneEdit /> Edit
+        </Button>
+      </ButtonContainer>
 
       {isDialogueShown && <Dialogue onHandleDelete={handleDelete} onHideDialogue={toggleDialogue} />}
     </DetailCard>
@@ -76,14 +87,18 @@ const DetailImage = styled.img`
   margin-top: 20px;
 `;
 
-const ButtonDelete = styled.button`
-  padding: 10px 20px;
-  margin: 1rem 5rem;
-  border: 1px solid var(--blue);
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  margin: 1.8rem;
+  border: 1px solid var(--lightcyan);
   border-radius: 8px;
   color: inherit;
-  background-color: var(--lightcyan);
-  text-align: center;
+  background-color: whitesmoke;
   font-size: 1.2rem;
   cursor: pointer;
 

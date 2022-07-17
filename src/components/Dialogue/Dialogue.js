@@ -20,7 +20,7 @@ const BackgroundCover = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); ;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const DialogueWrapper = styled.div`
@@ -32,7 +32,7 @@ const DialogueWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--lightcyan);
+  background-color: whitesmoke;
   padding: 40px;
   border-radius: 9px;
 `;

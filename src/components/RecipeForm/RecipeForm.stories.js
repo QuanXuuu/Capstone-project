@@ -3,7 +3,7 @@ import RecipeForm from './RecipeForm.js';
 export default {
   title: 'Components/RecipeForm',
   component: RecipeForm,
-  argTypes: {onCreateRecipe: {action: 'onCreateRecipe'}},
+  argTypes: {onAddRecipe: {action: 'onAddRecipe'}},
 };
 
 const Template = args => <RecipeForm {...args} />;
