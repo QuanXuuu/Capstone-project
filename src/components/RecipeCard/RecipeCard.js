@@ -6,38 +6,62 @@ import styled from 'styled-components';
 export default function RecipeCard({id, name, prepTime, category, image}) {
   return (
     <CardWrapper>
-      <CardImage src={image} alt={`Picture of a ${name}`} />
+      <CardImageContainer>
+        <CardImage src={image} alt={`Picture of a ${name}`} />
+      </CardImageContainer>
+
       <CardHeader>
-        <Link key={id} to={`/recipes/${id}`}>
+        <Link key={id} to={`/recipes/${id}`} style={linkStyle}>
           {name}
         </Link>
       </CardHeader>
-      <p>
-        <BsClockHistory /> PrepTime: {prepTime}
-        <small>mins</small>
-      </p>
-      <p>
-        <BiCategoryAlt /> Category: {category}
-      </p>
+      <CardDetailContainer>
+        <p>
+          <BsClockHistory /> {prepTime}
+          <small>mins</small>
+        </p>
+        <p>
+          <BiCategoryAlt /> {category}
+        </p>
+      </CardDetailContainer>
     </CardWrapper>
   );
 }
 
 const CardWrapper = styled.div`
-  padding: 1.5rem;
+  margin: 0.8rem auto;
   border-radius: 1rem;
-  margin: 0 auto;
-  box-shadow: 1rem 0.5rem 1rem #e6e6e6;
-  width: 300px;
+  box-shadow: 2px 3px 9px 3px #b9b9b9;
+  width: 280px;
 `;
 
 const CardHeader = styled.header`
-  text-align: center;
   font-size: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+`;
+
+const linkStyle = {
+  textDecoration: 'none',
+  color: 'var(--textcolor)',
+};
+
+const CardImageContainer = styled.div`
+  width: 280px;
+  height: 250px;
 `;
 
 const CardImage = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 70%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+`;
+
+const CardDetailContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 1.5rem;
 `;

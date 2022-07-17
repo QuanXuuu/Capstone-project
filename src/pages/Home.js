@@ -25,7 +25,7 @@ export default function Home({recipes}) {
 }
 
 const Container = styled.main`
-  padding: 10px;
+  padding: 40px;
   margin: 0 auto;
 `;
 
@@ -34,7 +34,8 @@ const Headline = styled.h1`
 `;
 
 const SubHeadline = styled.h2`
-  margin-top: -20px;
+  margin-top: -10px;
+  margin-bottom: 50px;
   text-align: center;
   font-weight: 300;
 `;
@@ -42,7 +43,8 @@ const SubHeadline = styled.h2`
 const CardContainer = styled.div`
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   overflow-y: auto;
   gap: 20px;
 `;

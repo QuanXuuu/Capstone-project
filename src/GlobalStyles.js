@@ -25,8 +25,7 @@ export default styled.createGlobalStyle`
     font-family: 'Roboto Condensed', sans-serif;
     color: var(--textcolor);
     background-color: var(--bgcolor);
-    line-height: 1.5;
-    max-width: 600px;
+    line-height: 1.2;
     height: 100vh;
   }
 
