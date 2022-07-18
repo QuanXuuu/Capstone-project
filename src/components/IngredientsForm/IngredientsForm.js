@@ -23,7 +23,7 @@ export default function IngredientsForm({onAddIngredients}) {
 
   return (
     <Container>
-      <Label htmlFor="ingredientInput">Add Ingredients:</Label>
+      <Label htmlFor="ingredientInput">Ingredients</Label>
       <Input
         maxLength={50}
         value={currentIngredient}
@@ -32,9 +32,9 @@ export default function IngredientsForm({onAddIngredients}) {
         name="ingredient"
         autoComplete="off"
       />
-      <button onClick={addNewIngredient}>
+      <Button onClick={addNewIngredient}>
         <Span>+</Span>
-      </button>
+      </Button>
     </Container>
   );
 }
@@ -54,10 +54,17 @@ const Input = styled.input`
   padding: 10px;
   font-size: 1em;
   color: inherit;
-  border-radius: 2px;
+  /* border-radius: 2px; */
+`;
+
+const Button = styled.button`
+  background-color: var(--blue);
+  border: none;
+  border-radius: 5px;
 `;
 
 const Span = styled.span`
   font-size: 2rem;
   font-weight: 200;
+  color: white;
 `;

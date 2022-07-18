@@ -32,17 +32,17 @@ export default function RecipeForm({onAddRecipe}) {
 
   return (
     <CreateForm onSubmit={handleSubmit}>
-      <CreateLabel htmlFor="name">Add Name:</CreateLabel>
+      <CreateLabel htmlFor="name">Name</CreateLabel>
       <Input id="name" name="name" autoComplete="off" required />
       <CreateLabel htmlFor="prepTime">
-        Add PrepTime<small>(mins)</small>:
+        PrepTime<small>(mins)</small>
       </CreateLabel>
 
       <TimeInput type="number" id="prepTime" name="prepTime" required />
 
-      <CreateLabel htmlFor="imgURL">Add Image URL:</CreateLabel>
-      <Input id="imgURL" name="imgURL" autoComplete="off" placeholder="https://unsplash.com/" required />
-      <CreateLabel htmlFor="category">Select Category:</CreateLabel>
+      <CreateLabel htmlFor="imgURL">Image URL</CreateLabel>
+      <Input id="imgURL" name="imgURL" autoComplete="off" required />
+      <CreateLabel htmlFor="category">Category</CreateLabel>
       <CreateSelect id="category" name="category" defaultValue="" required>
         <option value="" disabled hidden>
           --Please select category--
@@ -85,7 +85,7 @@ const Input = styled.input`
   padding: 10px;
   font-size: 1em;
   color: inherit;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 `;
 
 const TimeInput = styled.input`
@@ -93,7 +93,7 @@ const TimeInput = styled.input`
   font-size: 1em;
   color: inherit;
   -moz-appearance: textfield;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 `;
 
 const CreateSelect = styled.select`
@@ -101,7 +101,7 @@ const CreateSelect = styled.select`
   padding: 10px;
   color: inherit;
   margin: 0.2rem 0;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 `;
 
 const Scroller = styled.ul`
@@ -116,8 +116,12 @@ const IngredientItem = styled.li`
 const Button = styled.button`
   margin: 20px 0;
   padding: 10px;
+  background-color: var(--blue);
+  border: none;
+  border-radius: 5px;
 `;
 
 const ButtonSpan = styled.span`
   font-size: 1.2rem;
+  color: white;
 `;

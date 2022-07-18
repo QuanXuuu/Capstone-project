@@ -2,7 +2,6 @@ import {useState} from 'react';
 import {AiTwotoneEdit} from 'react-icons/ai';
 import {BiCategoryAlt} from 'react-icons/bi';
 import {BsClockHistory} from 'react-icons/bs';
-import {FiAlignJustify} from 'react-icons/fi';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
 import {useParams, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
@@ -53,8 +52,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
 
         <IngredientContainer>
           <IngredientHeader>
-            <FiAlignJustify id="icon-list" />
-            <TextSpan>Ingredients:</TextSpan>
+            <TextSpan>Ingredients</TextSpan>
           </IngredientHeader>
 
           <Ul>{ingredientItems}</Ul>
@@ -140,10 +138,6 @@ const IngredientContainer = styled.div`
   font-weight: lighter;
   font-size: 1.2rem;
   margin: 1rem 0 0 2rem;
-
-  #icon-list {
-    font-size: 2rem;
-  }
 `;
 
 const IngredientHeader = styled.div`

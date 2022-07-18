@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {FaSave} from 'react-icons/fa';
+import {GrDocumentUpdate} from 'react-icons/gr';
 import {MdCancel} from 'react-icons/md';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
 import {useParams, useNavigate} from 'react-router-dom';
@@ -127,7 +127,7 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
           <TextSpan>Cancel</TextSpan>
         </Button>
         <Button type="submit" onClick={handleSubmit}>
-          <FaSave id="icon-save" />
+          <GrDocumentUpdate id="icon-save" />
           <TextSpan>Save</TextSpan>
         </Button>
       </ButtonWrapper>
@@ -208,21 +208,17 @@ const Button = styled.button`
   padding: 2px 25px;
   margin-top: 1.5rem;
   border-radius: 8px;
-  color: inherit;
-  background-color: whitesmoke;
+  color: white;
+  background-color: var(--blue);
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
 
-  :active {
-    background-color: var(--blue);
-    color: white;
-  }
-
   #icon-cancel,
   #icon-save {
     font-size: 2.2rem;
+    color: white;
   }
 `;
 

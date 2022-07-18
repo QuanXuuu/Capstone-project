@@ -11,7 +11,7 @@ export default styled.createGlobalStyle`
   }
 
   :root {
-    --bgcolor: whitesmoke;
+    --bgcolor: white;
     --textcolor: rgb(36, 113, 163);
     --lightcyan: rgb(224, 255, 255);
     --blue: rgb(70, 130, 180);
