@@ -87,12 +87,12 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
 
   return (
     <EditForm>
-      <EditLabel htmlFor="name">Add name:</EditLabel>
-      <input id="name" name="name" autoComplete="off" defaultValue={recipe.name} onChange={editRecipeName} required />
+      <EditLabel htmlFor="name">Add Name:</EditLabel>
+      <Input id="name" name="name" autoComplete="off" defaultValue={recipe.name} onChange={editRecipeName} required />
       <EditLabel htmlFor="prepTime">
-        Add prepTime<small>(mins)</small>:
+        Add PrepTime<small>(mins)</small>:
       </EditLabel>
-      <input
+      <TimeInput
         type="number"
         id="prepTime"
         name="prepTime"
@@ -100,7 +100,7 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
         onChange={editRecipePrepTime}
         required
       />
-      <EditLabel htmlFor="category">Select category:</EditLabel>
+      <EditLabel htmlFor="category">Select Category:</EditLabel>
       <EditSelect id="category" name="category" defaultValue={recipe.category} onChange={editRecipeCategory} required>
         <option value="Vegetarian">Vegetarian</option>
         <option value="Fish">Fish</option>
@@ -114,7 +114,7 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
         {ingredients.map((ingredient, index) => (
           <IngredientItem key={index}>
             <ButtonDelete type="button" onClick={() => handleDeleteIngredient(index)}>
-              <RiDeleteBin5Fill />
+              <RiDeleteBin5Fill id="icon-delete" />
             </ButtonDelete>
             {ingredient}
           </IngredientItem>
@@ -123,10 +123,12 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
 
       <ButtonWrapper>
         <Button type="button" onClick={handleRedirect}>
-          <MdCancel /> Cancel
+          <MdCancel id="icon-cancel" />
+          <TextSpan>Cancel</TextSpan>
         </Button>
         <Button type="submit" onClick={handleSubmit}>
-          <FaSave /> Save
+          <FaSave id="icon-save" />
+          <TextSpan>Save</TextSpan>
         </Button>
       </ButtonWrapper>
     </EditForm>
@@ -137,7 +139,7 @@ const EditForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 0 auto;
+  margin: 7em auto 0 auto;
   max-width: 400px;
 `;
 
@@ -146,17 +148,41 @@ const EditLabel = styled.label`
   grid-column: span 2;
 `;
 
+const Input = styled.input`
+  padding: 10px;
+  font-size: 1em;
+  color: inherit;
+  border-radius: 2px;
+`;
+
+const TimeInput = styled.input`
+  padding: 10px;
+  font-size: 1em;
+  color: inherit;
+  -moz-appearance: textfield;
+  border-radius: 2px;
+`;
+
 const EditSelect = styled.select`
   font-size: 1em;
+  padding: 10px;
+  color: inherit;
+  margin: 0.2rem 0;
+  border-radius: 2px;
 `;
 
 const Scroller = styled.ul`
   height: 100%;
   overflow-y: auto;
+  margin: 1.2rem 0 0 1.5rem;
+  line-height: 1.6rem;
 `;
 
 const IngredientItem = styled.li`
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const ButtonDelete = styled.button`
@@ -165,25 +191,41 @@ const ButtonDelete = styled.button`
   color: inherit;
   margin-right: 0.6rem;
   cursor: pointer;
+
+  #icon-delete {
+    font-size: 1.2rem;
+  }
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 2rem;
 `;
 
 const Button = styled.button`
-  padding: 10px;
-  margin: 1.5rem 3rem;
-  border: 1px solid var(--lightcyan);
+  padding: 2px 25px;
+  margin-top: 1.5rem;
   border-radius: 8px;
   color: inherit;
   background-color: whitesmoke;
-  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
 
   :active {
     background-color: var(--blue);
     color: white;
   }
+
+  #icon-cancel,
+  #icon-save {
+    font-size: 2.2rem;
+  }
+`;
+
+const TextSpan = styled.span`
+  font-size: 0.8rem;
 `;
