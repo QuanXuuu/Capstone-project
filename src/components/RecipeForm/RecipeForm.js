@@ -32,15 +32,17 @@ export default function RecipeForm({onAddRecipe}) {
 
   return (
     <CreateForm onSubmit={handleSubmit}>
-      <CreateLabel htmlFor="name">Add name:</CreateLabel>
-      <input id="name" name="name" autoComplete="off" required />
+      <CreateLabel htmlFor="name">Add Name:</CreateLabel>
+      <Input id="name" name="name" autoComplete="off" required />
       <CreateLabel htmlFor="prepTime">
-        Add prepTime<small>(mins)</small>:
+        Add PrepTime<small>(mins)</small>:
       </CreateLabel>
-      <input type="number" id="prepTime" name="prepTime" required />
-      <CreateLabel htmlFor="imgURL">Add image:</CreateLabel>
-      <input id="imgURL" name="imgURL" autoComplete="off" placeholder="https://unsplash.com/" required />
-      <CreateLabel htmlFor="category">Select category:</CreateLabel>
+
+      <TimeInput type="number" id="prepTime" name="prepTime" required />
+
+      <CreateLabel htmlFor="imgURL">Add Image URL:</CreateLabel>
+      <Input id="imgURL" name="imgURL" autoComplete="off" placeholder="https://unsplash.com/" required />
+      <CreateLabel htmlFor="category">Select Category:</CreateLabel>
       <CreateSelect id="category" name="category" defaultValue="" required>
         <option value="" disabled hidden>
           --Please select category--
@@ -59,7 +61,9 @@ export default function RecipeForm({onAddRecipe}) {
         ))}
       </Scroller>
 
-      <Button type="submit">Submit</Button>
+      <Button type="submit">
+        <ButtonSpan>Submit</ButtonSpan>
+      </Button>
     </CreateForm>
   );
 }
@@ -77,8 +81,27 @@ const CreateLabel = styled.label`
   grid-column: span 2;
 `;
 
+const Input = styled.input`
+  padding: 10px;
+  font-size: 1em;
+  color: inherit;
+  border-radius: 2px;
+`;
+
+const TimeInput = styled.input`
+  padding: 10px;
+  font-size: 1em;
+  color: inherit;
+  -moz-appearance: textfield;
+  border-radius: 2px;
+`;
+
 const CreateSelect = styled.select`
   font-size: 1em;
+  padding: 10px;
+  color: inherit;
+  margin: 0.2rem 0;
+  border-radius: 2px;
 `;
 
 const Scroller = styled.ul`
@@ -92,4 +115,9 @@ const IngredientItem = styled.li`
 
 const Button = styled.button`
   margin: 20px 0;
+  padding: 10px;
+`;
+
+const ButtonSpan = styled.span`
+  font-size: 1.2rem;
 `;

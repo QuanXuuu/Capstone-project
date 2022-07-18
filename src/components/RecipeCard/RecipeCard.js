@@ -37,7 +37,7 @@ const CardWrapper = styled.div`
 
 const CardHeader = styled.header`
   font-size: 1.5rem;
-  margin: 2rem;
+  margin: 2rem 0 1.2rem 0;
   text-align: center;
 `;
 
@@ -48,7 +48,7 @@ const linkStyle = {
 
 const CardImageContainer = styled.div`
   width: 280px;
-  height: 250px;
+  height: 220px;
 `;
 
 const CardImage = styled.img`
