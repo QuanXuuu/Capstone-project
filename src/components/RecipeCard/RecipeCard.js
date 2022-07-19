@@ -57,7 +57,7 @@ const CardHeader = styled.header`
 
 const linkStyle = {
   textDecoration: 'none',
-  color: 'var(--textcolor)',
+  color: 'var(--primary-color)',
 };
 
 const CardImageContainer = styled.div`
@@ -81,10 +81,10 @@ const CardDetailContainer = styled.div`
 `;
 
 const IconButtonRight = styled.button`
-  background-color: white;
+  background-color: var(--bgcolor);
   border: none;
   font-size: 1.8rem;
-  color: var(--blue);
+  color: var(--secondary-color);
   position: absolute;
   left: 230px;
   bottom: 0;

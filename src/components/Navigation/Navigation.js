@@ -40,7 +40,7 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0;
-  background-color: var(--blue);
+  background-color: var(--secondary-color);
 `;
 
 const StyledNavLink = styled(NavLink)`

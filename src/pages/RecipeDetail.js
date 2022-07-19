@@ -91,7 +91,7 @@ const IconButtonLeft = styled.button`
   border: none;
   margin-right: 1rem;
   font-size: 1.8rem;
-  color: var(--blue);
+  color: var(--secondary-color);
   cursor: pointer;
 `;
 const DetailName = styled.h1`
@@ -123,7 +123,6 @@ const DetailImage = styled.img`
 
 const DetailSubTitleContainer = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   margin: 1rem 0 1.8rem 0;
 
@@ -187,14 +186,14 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   color: white;
-  background-color: var(--blue);
+  background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 
   :active {
-    background-color: var(--lightblue);
+    background-color: var(--third-color);
   }
 
   #icon-delete,

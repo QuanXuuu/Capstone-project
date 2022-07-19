@@ -89,11 +89,11 @@ const Input = styled.input`
   color: inherit;
   margin-top: -0.6rem;
   border: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--gray);
 
   :focus {
     outline: none;
-    border-color: var(--blue);
+    border-color: var(--secondary-color);
   }
 `;
 
@@ -104,11 +104,11 @@ const TimeInput = styled.input`
   -moz-appearance: textfield;
   margin-top: -0.6rem;
   border: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--gray);
 
   :focus {
     outline: none;
-    border-color: var(--blue);
+    border-color: var(--secondary-color);
   }
 `;
 
@@ -118,13 +118,13 @@ const CreateSelect = styled.select`
   color: inherit;
   margin: 0.2rem 0;
   margin-top: -0.6rem;
-  background-color: white;
+  background-color: var(--bgcolor);
   border: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--gray);
 
   :focus {
     outline: none;
-    border-color: var(--blue);
+    border-color: var(--secondary-color);
   }
 `;
 
@@ -142,7 +142,7 @@ const IngredientItem = styled.li`
 const Button = styled.button`
   margin: 20px 0;
   padding: 10px;
-  background-color: var(--blue);
+  background-color: var(--secondary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;

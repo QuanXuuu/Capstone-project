@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {MdUpdate} from 'react-icons/md';
+import {FaSave} from 'react-icons/fa';
 import {MdCancel} from 'react-icons/md';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
 import {useParams, useNavigate} from 'react-router-dom';
@@ -141,7 +141,7 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
 
         <ButtonWrapper>
           <Button type="submit" onClick={handleSubmit}>
-            <MdUpdate id="icon-update" />
+            <FaSave id="icon-update" />
             <ButtonTextSpan>Save</ButtonTextSpan>
           </Button>
         </ButtonWrapper>
@@ -176,7 +176,7 @@ const Input = styled.input`
 
   :focus {
     outline: none;
-    border-color: var(--blue);
+    border-color: var(--secondary-color);
   }
 `;
 
@@ -191,7 +191,7 @@ const TimeInput = styled.input`
 
   :focus {
     outline: none;
-    border-color: var(--blue);
+    border-color: var(--secondary-color);
   }
 `;
 
@@ -209,7 +209,7 @@ const URLInput = styled.input`
 
   :focus {
     outline: none;
-    border-color: var(--blue);
+    border-color: var(--third-color);
   }
 `;
 
@@ -225,7 +225,7 @@ const EditSelect = styled.select`
 
   :focus {
     outline: none;
-    border-color: var(--blue);
+    border-color: var(--third-color);
   }
 `;
 
@@ -244,7 +244,7 @@ const IngredientItem = styled.li`
 `;
 
 const IconButtonDelete = styled.button`
-  background-color: whitesmoke;
+  background-color: var(--bgcolor);
   border: none;
   color: inherit;
   margin-right: 0.6rem;
@@ -271,14 +271,14 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   color: white;
-  background-color: var(--blue);
+  background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 
   :active {
-    background-color: var(--lightblue);
+    background-color: var(--third-color);
   }
 
   #icon-cancel,

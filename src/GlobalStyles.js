@@ -11,18 +11,25 @@ export default styled.createGlobalStyle`
   }
 
   :root {
-    --bgcolor: white;
-    --textcolor: rgb(36, 113, 163);
-    --lightcyan: rgb(224, 255, 255);
+    --bgcolor: #ffffff;
+    --textcolor: #196f3d;
+    --primary-color: #196f3d;
+    --secondary-color: #27ae60;
+
+    --third-color: #58d68d;
+
+    --gray: #7f8c8d;
+
+    /* --lightcyan: rgb(224, 255, 255);
     --blue: rgb(70, 130, 180);
     --lightblue: rgb(176, 196, 222);
-    --skyblue: rgb(135, 206, 235);
+    --skyblue: rgb(135, 206, 235);  */
   }
 
   body {
     font-size: 1.125rem;
     font-family: 'Roboto Condensed', sans-serif;
-    color: var(--textcolor);
+    color: var(--primary-color);
     background-color: var(--bgcolor);
     line-height: 1.2;
     height: 100vh;

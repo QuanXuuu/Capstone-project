@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {AiOutlinePlus} from 'react-icons/ai';
 import styled from 'styled-components';
 
 export default function IngredientsForm({onAddIngredients}) {
@@ -34,7 +35,7 @@ export default function IngredientsForm({onAddIngredients}) {
       />
 
       <Button onClick={addNewIngredient}>
-        <Span>+</Span>
+        <AiOutlinePlus id="icon-plus" />
       </Button>
     </Container>
   );
@@ -51,7 +52,7 @@ const Label = styled.label`
   grid-column: span 2;
   margin-top: 1rem;
   margin-left: 0.3rem;
-  color: gray;
+  color: var(--gray);
 `;
 
 const Input = styled.input`
@@ -60,23 +61,24 @@ const Input = styled.input`
   color: inherit;
   margin-top: -0.6rem;
   border: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--gray);
 
   :focus {
     outline: none;
-    border-color: var(--blue);
+    border-color: var(--secondary-color);
   }
 `;
 
 const Button = styled.button`
-  background-color: var(--blue);
+  background-color: var(--secondary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
-`;
-
-const Span = styled.span`
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 200;
   color: white;
+
+  #icon-plus {
+    margin-top: 0.5rem;
+  }
 `;
