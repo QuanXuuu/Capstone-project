@@ -59,13 +59,17 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
         </IngredientContainer>
 
         <ButtonContainer>
-          <Button onClick={toggleDialogue}>
-            <RiDeleteBin5Fill id="icon-delete" /> <ButtonTextSpan> Delete</ButtonTextSpan>
-          </Button>
+          <ButtonWrapper>
+            <Button onClick={toggleDialogue}>
+              <RiDeleteBin5Fill id="icon-delete" /> <ButtonTextSpan> Delete</ButtonTextSpan>
+            </Button>
+          </ButtonWrapper>
 
-          <Button onClick={handleRedirect}>
-            <AiTwotoneEdit id="icon-edit" /> <ButtonTextSpan>Edit</ButtonTextSpan>
-          </Button>
+          <ButtonWrapper>
+            <Button onClick={handleRedirect}>
+              <AiTwotoneEdit id="icon-edit" /> <ButtonTextSpan>Edit</ButtonTextSpan>
+            </Button>
+          </ButtonWrapper>
         </ButtonContainer>
 
         {isDialogueShown && <Dialogue onHandleDelete={handleDelete} onHideDialogue={toggleDialogue} />}
@@ -85,14 +89,14 @@ const DetailCard = styled.div`
   border-radius: 1rem;
   margin: 0 auto;
   box-shadow: 1rem 0.5rem 1rem #e6e6e6;
-  max-width: 375px;
+  max-width: 340px;
 `;
 
 const DetailSubContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 1rem 0 1rem 0;
+  margin: 1.8rem 0 1.8rem 0;
 
   #icon-time {
     font-size: 1.5rem;
@@ -123,7 +127,7 @@ const CategorySpan = styled.div`
 `;
 
 const DetailImageContainer = styled.div`
-  width: 375px;
+  width: 340px;
   height: 240px;
 `;
 const DetailImage = styled.img`
@@ -144,7 +148,7 @@ const IngredientHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 1rem 0 0.5rem 0;
+  margin: 1rem 0 0.8rem 0;
 `;
 
 const TextSpan = styled.span`
@@ -155,37 +159,43 @@ const TextSpan = styled.span`
 const Ul = styled.ul`
   list-style: none;
   margin-left: 2.5rem;
-  line-height: 1.8rem;
+  line-height: 2.2rem;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 110px;
 `;
 
 const Button = styled.button`
-  padding: 2px 20px;
-  margin: 2rem 0;
-  border-radius: 8px;
-  color: inherit;
-  background-color: whitesmoke;
+  padding: 10px;
+  margin: 3rem 0;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--blue);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
 
   :active {
-    background-color: var(--blue);
-    color: white;
+    background-color: var(--lightblue);
   }
 
   #icon-delete,
   #icon-edit {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
   }
 `;
 
 const ButtonTextSpan = styled.span`
-  font-size: 0.8rem;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  font-weight: 300;
 `;

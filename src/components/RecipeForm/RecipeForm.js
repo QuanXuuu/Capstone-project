@@ -35,18 +35,17 @@ export default function RecipeForm({onAddRecipe}) {
       <CreateLabel htmlFor="name">Name</CreateLabel>
       <Input id="name" name="name" autoComplete="off" required />
       <CreateLabel htmlFor="prepTime">
-        PrepTime<small>(mins)</small>
+        Prep Time<small>(mins)</small>
       </CreateLabel>
 
-      <TimeInput type="number" id="prepTime" name="prepTime" required />
+      <TimeInput type="number" id="prepTime" name="prepTime" autoComplete="off" required />
 
       <CreateLabel htmlFor="imgURL">Image URL</CreateLabel>
       <Input id="imgURL" name="imgURL" autoComplete="off" required />
+
       <CreateLabel htmlFor="category">Category</CreateLabel>
       <CreateSelect id="category" name="category" defaultValue="" required>
-        <option value="" disabled hidden>
-          --Please select category--
-        </option>
+        <option value="" disabled hidden id="default-text"></option>
         <option value="Vegetarian">Vegetarian</option>
         <option value="Fish">Fish</option>
         <option value="Meat">Meat</option>
@@ -73,40 +72,67 @@ const CreateForm = styled.form`
   flex-direction: column;
   gap: 10px;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 375px;
 `;
 
 const CreateLabel = styled.label`
-  font-size: 1.2em;
+  font-size: 1em;
   grid-column: span 2;
+  margin-top: 1rem;
+  margin-left: 0.3rem;
+  color: gray;
 `;
 
 const Input = styled.input`
-  padding: 10px;
+  padding: 10px 5px;
   font-size: 1em;
   color: inherit;
-  /* border-radius: 2px; */
+  margin-top: -0.6rem;
+  border: none;
+  border-bottom: 1px solid gray;
+
+  :focus {
+    outline: none;
+    border-color: var(--blue);
+  }
 `;
 
 const TimeInput = styled.input`
-  padding: 10px;
+  padding: 10px 5px;
   font-size: 1em;
   color: inherit;
   -moz-appearance: textfield;
-  /* border-radius: 2px; */
+  margin-top: -0.6rem;
+  border: none;
+  border-bottom: 1px solid gray;
+
+  :focus {
+    outline: none;
+    border-color: var(--blue);
+  }
 `;
 
 const CreateSelect = styled.select`
   font-size: 1em;
-  padding: 10px;
+  padding: 10px 2px;
   color: inherit;
   margin: 0.2rem 0;
-  /* border-radius: 2px; */
+  margin-top: -0.6rem;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid gray;
+
+  :focus {
+    outline: none;
+    border-color: var(--blue);
+  }
 `;
 
 const Scroller = styled.ul`
   height: 100%;
   overflow-y: auto;
+  margin: 1.2rem 0 0 1.5rem;
+  line-height: 1.6rem;
 `;
 
 const IngredientItem = styled.li`
@@ -119,6 +145,7 @@ const Button = styled.button`
   background-color: var(--blue);
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 const ButtonSpan = styled.span`

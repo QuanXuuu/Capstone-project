@@ -15,6 +15,7 @@ export default styled.createGlobalStyle`
     --textcolor: rgb(36, 113, 163);
     --lightcyan: rgb(224, 255, 255);
     --blue: rgb(70, 130, 180);
+    --lightblue: rgb(176, 196, 222);
     --skyblue: rgb(135, 206, 235);
   }
 

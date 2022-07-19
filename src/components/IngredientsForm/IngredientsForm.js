@@ -32,6 +32,7 @@ export default function IngredientsForm({onAddIngredients}) {
         name="ingredient"
         autoComplete="off"
       />
+
       <Button onClick={addNewIngredient}>
         <Span>+</Span>
       </Button>
@@ -46,21 +47,32 @@ const Container = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: 1.2em;
+  font-size: 1em;
   grid-column: span 2;
+  margin-top: 1rem;
+  margin-left: 0.3rem;
+  color: gray;
 `;
 
 const Input = styled.input`
-  padding: 10px;
+  padding: 10px 5px;
   font-size: 1em;
   color: inherit;
-  /* border-radius: 2px; */
+  margin-top: -0.6rem;
+  border: none;
+  border-bottom: 1px solid gray;
+
+  :focus {
+    outline: none;
+    border-color: var(--blue);
+  }
 `;
 
 const Button = styled.button`
   background-color: var(--blue);
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 const Span = styled.span`
