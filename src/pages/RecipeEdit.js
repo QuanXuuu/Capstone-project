@@ -155,7 +155,7 @@ const EditForm = styled.form`
   flex-direction: column;
   gap: 10px;
   margin: 7em auto 0 auto;
-  max-width: 375px;
+  max-width: 350px;
 `;
 
 const EditLabel = styled.label`

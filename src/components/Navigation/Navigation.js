@@ -31,6 +31,7 @@ const NavContainer = styled.nav`
   top: 0;
   left: 0;
   font-size: 1.5rem;
+  z-index: 999;
 `;
 
 const Nav = styled.div`

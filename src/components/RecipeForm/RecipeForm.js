@@ -72,7 +72,7 @@ const CreateForm = styled.form`
   flex-direction: column;
   gap: 10px;
   margin: 0 auto;
-  max-width: 375px;
+  max-width: 350px;
 `;
 
 const CreateLabel = styled.label`

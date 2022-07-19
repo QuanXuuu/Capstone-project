@@ -17,7 +17,7 @@ const Container = styled.main`
 
 const Headline = styled.h1`
   text-align: center;
-  margin: 3em 0 1em 0;
+  margin: 3em 0 0.5em 0;
   font-weight: 400;
   font-size: 2rem;
 `;
