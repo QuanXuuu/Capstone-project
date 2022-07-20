@@ -80,7 +80,7 @@ const AppTextSpan = styled.span`
   font-size: 1.8rem;
   padding-top: 15px;
   color: var(--white);
-  font-family: 'nothing you could do';
+  font-family: 'nothing you could do', sans-serif;
 `;
 
 const IconLinkContainer = styled.div`

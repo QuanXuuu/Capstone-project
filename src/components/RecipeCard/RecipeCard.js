@@ -118,7 +118,7 @@ const ButtonRight = styled.button`
   border: none;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'nothing you could do';
+  font-family: 'nothing you could do', sans-serif;
   background-color: var(--primary-color);
   color: var(--white);
   padding: 5px 12px;

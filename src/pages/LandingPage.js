@@ -35,7 +35,7 @@ const AppTitle = styled.h1`
   margin-top: 1rem;
   font-size: 2.4rem;
   font-weight: 500;
-  font-family: 'nothing you could do';
+  font-family: 'nothing you could do', sans-serif;
   color: var(--secondary-color);
 `;
 
@@ -56,11 +56,10 @@ const ButtonStart = styled.button`
   border: none;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'nothing you could do';
+  font-family: 'nothing you could do', sans-serif;
   background-color: var(--primary-color);
   color: var(--white);
   padding: 10px;
-
   display: flex;
   align-items: center;
   cursor: pointer;
