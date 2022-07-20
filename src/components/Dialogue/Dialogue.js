@@ -50,16 +50,20 @@ const DialogueButtonWrapper = styled.div`
 `;
 
 const ButtonCancel = styled.button`
-  color: inherit;
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--white);
   margin-right: 20px;
   padding: 5px 10px;
-  border: 1px solid var(--blue);
-  border-radius: 8px;
+  border-radius: 6px;
+  cursor: pointer;
 `;
 const ButtonConfirm = styled.button`
-  color: inherit;
+  background-color: var(--secondary-color);
+  color: var(--white);
   margin-left: 20px;
   padding: 5px 10px;
-  border: 1px solid var(--blue);
+  border: none;
   border-radius: 6px;
+  cursor: pointer;
 `;

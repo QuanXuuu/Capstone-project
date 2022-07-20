@@ -8,7 +8,7 @@ export default function IngredientsForm({onAddIngredients}) {
   function handleChange(event) {
     const ingredientName = event.target.value;
 
-    if (ingredientName.length > 0) {
+    if (ingredientName.length >= 0) {
       setCurrentIngredient(ingredientName);
     }
   }
@@ -62,6 +62,7 @@ const Input = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid var(--gray);
+  border-radius: 5px;
 
   :focus {
     outline: none;
@@ -73,10 +74,10 @@ const Button = styled.button`
   background-color: var(--secondary-color);
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 1.8rem;
   font-weight: 200;
-  color: white;
+  color: var(--white);
+  cursor: pointer;
 
   #icon-plus {
     margin-top: 0.5rem;

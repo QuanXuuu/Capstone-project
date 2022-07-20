@@ -11,19 +11,13 @@ export default styled.createGlobalStyle`
   }
 
   :root {
-    --bgcolor: #ffffff;
+    --bgcolor: #eafaf1;
     --textcolor: #196f3d;
     --primary-color: #196f3d;
     --secondary-color: #27ae60;
-
     --third-color: #58d68d;
-
+    --white: #ffffff;
     --gray: #7f8c8d;
-
-    /* --lightcyan: rgb(224, 255, 255);
-    --blue: rgb(70, 130, 180);
-    --lightblue: rgb(176, 196, 222);
-    --skyblue: rgb(135, 206, 235);  */
   }
 
   body {

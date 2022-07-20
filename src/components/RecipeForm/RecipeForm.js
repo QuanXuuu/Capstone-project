@@ -90,6 +90,7 @@ const Input = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid var(--gray);
+  border-radius: 5px;
 
   :focus {
     outline: none;
@@ -105,6 +106,7 @@ const TimeInput = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid var(--gray);
+  border-radius: 5px;
 
   :focus {
     outline: none;
@@ -118,13 +120,15 @@ const CreateSelect = styled.select`
   color: inherit;
   margin: 0.2rem 0;
   margin-top: -0.6rem;
-  background-color: var(--bgcolor);
+  background-color: var(--white);
   border: none;
   border-bottom: 1px solid var(--gray);
+  border-radius: 5px;
 
   :focus {
     outline: none;
     border-color: var(--secondary-color);
+    border-radius: 10px;
   }
 `;
 

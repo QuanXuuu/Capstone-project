@@ -173,6 +173,7 @@ const Input = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid gray;
+  border-radius: 5px;
 
   :focus {
     outline: none;
@@ -188,6 +189,7 @@ const TimeInput = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid gray;
+  border-radius: 5px;
 
   :focus {
     outline: none;
@@ -206,6 +208,7 @@ const URLInput = styled.input`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  border-radius: 5px;
 
   :focus {
     outline: none;
@@ -222,6 +225,7 @@ const EditSelect = styled.select`
   background-color: white;
   border: none;
   border-bottom: 1px solid gray;
+  border-radius: 5px;
 
   :focus {
     outline: none;

@@ -85,7 +85,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
 }
 
 const IconButtonLeft = styled.button`
-  background-color: white;
+  background-color: var(--bgcolor);
   border: none;
   margin-right: 1rem;
   font-size: 1.8rem;
@@ -186,7 +186,7 @@ const Button = styled.button`
   width: 100%;
   border: none;
   border-radius: 5px;
-  color: white;
+  color: var(--white);
   background-color: var(--secondary-color);
   display: flex;
   justify-content: center;

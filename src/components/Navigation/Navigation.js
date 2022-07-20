@@ -55,7 +55,7 @@ const Nav = styled.div`
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   margin: 0 1.5rem;
-  color: var(--bgcolor);
+  color: var(--white);
   cursor: pointer;
 
   #logo-app {
