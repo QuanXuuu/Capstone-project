@@ -103,7 +103,6 @@ const TimeInput = styled.input`
   font-size: 1em;
   color: inherit;
   -moz-appearance: textfield;
-  /*eslint no-useless-escape: "error"*/
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid var(--gray);
