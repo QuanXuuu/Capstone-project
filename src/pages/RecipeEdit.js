@@ -184,9 +184,8 @@ const TimeInput = styled.input`
   padding: 10px 5px;
   font-size: 1em;
   color: inherit;
-  /* stylelint-disable */
+  /* eslint-disable-next-line */
   -moz-appearance: textfield;
-  /* stylelint-disable */
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid gray;
