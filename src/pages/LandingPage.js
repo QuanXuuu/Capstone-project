@@ -1,4 +1,5 @@
 import {BsFillArrowRightCircleFill} from 'react-icons/bs';
+import {GiCampCookingPot} from 'react-icons/gi';
 import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,8 +12,12 @@ export default function LandingPage() {
     navigate(`/recipes`);
   };
   return (
-    <>
-      <AppTitle>Your digital recipe book</AppTitle>
+    <PageContainer>
+      <TitleContainer>
+        <AppTitle>Your digital recipe book</AppTitle>
+        <GiCampCookingPot id="icon-cooking" />
+      </TitleContainer>
+
       <ButtonStart type="button" onClick={handleRedirect}>
         <span>Start cooking</span> <BsFillArrowRightCircleFill id="icon-start" />
       </ButtonStart>
@@ -20,28 +25,33 @@ export default function LandingPage() {
       {/* <ImageContainer>
         <Image src={BackgroundImage} alt="food" />
       </ImageContainer> */}
-    </>
+    </PageContainer>
   );
 }
 
-// const PageContainer = styled.div`
-//   margin-top: 5rem;
-//   background-color: yellow;
-//   border: 2px solid black;
-//   position: relative;
-/* background-image: url('https://images.unsplash.com/photo-1543362906-acfc16c67564?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JlZW4lMjB2ZWdldGFibGVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60'); */
-/* 
-  width: 100%;
-  height: 100vh; */
+const PageContainer = styled.div`
+  overflow: hidden;
+`;
 
 const AppTitle = styled.h1`
-  text-align: center;
+  /* text-align: center; */
   margin-top: 10rem;
   font-size: 3.8rem;
   color: var(--primary-color);
   /* border: 2px solid red; */
 `;
 
+const TitleContainer = styled.div`
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #icon-cooking {
+    margin-top: 2rem;
+    font-size: 8rem;
+  }
+`;
 // const ImageContainer = styled.div`
 //   width: 375px;
 //   height: 100vh;

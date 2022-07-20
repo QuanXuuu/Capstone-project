@@ -25,6 +25,7 @@ export default function RecipeForm({onAddRecipe}) {
       ingredients,
       imgURL: imgURL.value,
     };
+
     onAddRecipe(recipe);
     setIngredients([]);
     navigate('/recipes/' + recipe.id);
