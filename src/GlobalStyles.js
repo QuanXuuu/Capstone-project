@@ -11,11 +11,10 @@ export default styled.createGlobalStyle`
   }
 
   :root {
-    --bgcolor: #eafaf1;
-    --textcolor: #196f3d;
-    --primary-color: #196f3d;
-    --secondary-color: #27ae60;
-    --third-color: #58d68d;
+    --bgcolor: #ffffff;
+    --primary-color: #27ae60;
+    --secondary-color: #1e8449;
+    --tertiary-color: #ffcc00;
     --white: #ffffff;
     --gray: #7f8c8d;
   }
@@ -23,7 +22,7 @@ export default styled.createGlobalStyle`
   body {
     font-size: 1.125rem;
     font-family: 'Roboto Condensed', sans-serif;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     background-color: var(--bgcolor);
     line-height: 1.2;
     height: 100vh;

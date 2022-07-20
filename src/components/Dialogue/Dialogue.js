@@ -40,6 +40,7 @@ const DialogueWrapper = styled.div`
 const Text = styled.p`
   font-size: 1.2rem;
   line-height: 2rem;
+  color: var(--secondary-color);
 `;
 
 const DialogueButtonWrapper = styled.div`
@@ -51,7 +52,7 @@ const DialogueButtonWrapper = styled.div`
 
 const ButtonCancel = styled.button`
   border: none;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--white);
   margin-right: 20px;
   padding: 5px 10px;
@@ -59,7 +60,7 @@ const ButtonCancel = styled.button`
   cursor: pointer;
 `;
 const ButtonConfirm = styled.button`
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--white);
   margin-left: 20px;
   padding: 5px 10px;

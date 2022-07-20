@@ -1,6 +1,6 @@
-import {IoMdAddCircle} from 'react-icons/io';
+import {AiOutlineUnorderedList} from 'react-icons/ai';
+import {BsCloudPlus} from 'react-icons/bs';
 import {MdOutlineFoodBank} from 'react-icons/md';
-import {MdViewList} from 'react-icons/md';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -18,14 +18,14 @@ export default function Navigation() {
         <IconLinkContainer>
           <StyledNavLink to="/recipes">
             <ViewContainer>
-              <MdViewList id="icon-view" />
-              <ViewSpan>View</ViewSpan>
+              <AiOutlineUnorderedList id="icon-view" />
+              <ViewSpan>All</ViewSpan>
             </ViewContainer>
           </StyledNavLink>
 
           <StyledNavLink to="/recipes/new">
             <AddContainer>
-              <IoMdAddCircle id="icon-add" />
+              <BsCloudPlus id="icon-add" />
               <AddSpan>Add</AddSpan>
             </AddContainer>
           </StyledNavLink>
@@ -49,7 +49,7 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -59,12 +59,14 @@ const StyledNavLink = styled(NavLink)`
   cursor: pointer;
 
   #logo-app {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    color: var(--white);
   }
 
   #icon-view,
   #icon-add {
     font-size: 2rem;
+    color: var(--white);
   }
 `;
 
@@ -77,6 +79,8 @@ const AppLogoContainer = styled.div`
 const AppTextSpan = styled.span`
   font-size: 1.8rem;
   padding-top: 15px;
+  color: var(--white);
+  font-family: 'nothing you could do';
 `;
 
 const IconLinkContainer = styled.div`

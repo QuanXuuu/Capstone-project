@@ -32,7 +32,9 @@ const Headline = styled.h1`
   text-align: center;
   margin: 2.5em 0 1em 0;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  font-family: 'nothing you could do';
+  color: var(--secondary-color);
 `;
 
 const CardContainer = styled.div`

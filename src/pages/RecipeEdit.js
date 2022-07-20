@@ -163,7 +163,7 @@ const EditLabel = styled.label`
   grid-column: span 2;
   margin-top: 1rem;
   margin-left: 0.3rem;
-  color: gray;
+  color: var(--gray);
 `;
 
 const Input = styled.input`
@@ -173,11 +173,10 @@ const Input = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid gray;
-  border-radius: 5px;
 
   :focus {
     outline: none;
-    border-color: var(--secondary-color);
+    border-color: var(--tertiary-color);
   }
 `;
 
@@ -189,11 +188,10 @@ const TimeInput = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid gray;
-  border-radius: 5px;
 
   :focus {
     outline: none;
-    border-color: var(--secondary-color);
+    border-color: var(--tertiary-color);
   }
 `;
 
@@ -208,11 +206,10 @@ const URLInput = styled.input`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  border-radius: 5px;
 
   :focus {
     outline: none;
-    border-color: var(--third-color);
+    border-color: var(--tertiary-color);
   }
 `;
 
@@ -225,11 +222,10 @@ const EditSelect = styled.select`
   background-color: white;
   border: none;
   border-bottom: 1px solid gray;
-  border-radius: 5px;
 
   :focus {
     outline: none;
-    border-color: var(--third-color);
+    border-color: var(--tertiary-color);
   }
 `;
 
@@ -250,7 +246,7 @@ const IngredientItem = styled.li`
 const IconButtonDelete = styled.button`
   background-color: var(--bgcolor);
   border: none;
-  color: inherit;
+  color: var(--secondary-color);
   margin-right: 0.6rem;
   cursor: pointer;
 
@@ -275,15 +271,11 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   color: white;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
-  :active {
-    background-color: var(--third-color);
-  }
 
   #icon-cancel,
   #icon-update {

@@ -1,6 +1,6 @@
+import {AiOutlineArrowRight} from 'react-icons/ai';
 import {BiCategoryAlt} from 'react-icons/bi';
 import {BsClockHistory} from 'react-icons/bs';
-import {BsFillArrowRightCircleFill} from 'react-icons/bs';
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
@@ -25,18 +25,22 @@ export default function RecipeCard({id, name, prepTime, category, image}) {
       </CardHeader>
 
       <CardDetailContainer>
-        <p>
-          <BsClockHistory /> {prepTime}
-          <small>mins</small>
-        </p>
-        <p>
-          <BiCategoryAlt /> {category}
-        </p>
+        <TimeContainer>
+          <BsClockHistory id="icon-time" />
+          <TimeSpan>{prepTime}mins</TimeSpan>
+        </TimeContainer>
+
+        <CategoryContainer>
+          <BiCategoryAlt id="icon-category" /> <CategorySpan>{category}</CategorySpan>
+        </CategoryContainer>
       </CardDetailContainer>
 
-      <IconButtonRight type="button" onClick={handleRedirect}>
-        <BsFillArrowRightCircleFill id="icon-arrow-right" onClick={handleRedirect} />
-      </IconButtonRight>
+      <ButtonWrapper>
+        <ButtonRight type="button" onClick={handleRedirect}>
+          <span>More</span>
+          <AiOutlineArrowRight id="icon-arrow-right" />
+        </ButtonRight>
+      </ButtonWrapper>
     </CardWrapper>
   );
 }
@@ -47,6 +51,7 @@ const CardWrapper = styled.div`
   box-shadow: 2px 3px 9px 3px #b9b9b9;
   width: 280px;
   position: relative;
+  color: var(--secondary-color);
 `;
 
 const CardHeader = styled.header`
@@ -57,7 +62,7 @@ const CardHeader = styled.header`
 
 const linkStyle = {
   textDecoration: 'none',
-  color: 'var(--primary-color)',
+  color: 'var(--secondary-color)',
 };
 
 const CardImageContainer = styled.div`
@@ -75,18 +80,57 @@ const CardImage = styled.img`
 
 const CardDetailContainer = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   padding-bottom: 3rem;
+
+  #icon-time,
+  #icon-category {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+  }
 `;
 
-const IconButtonRight = styled.button`
-  background-color: var(--bgcolor);
+const TimeContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const TimeSpan = styled.span`
+  margin: 0.15rem 0 0 0.5rem;
+`;
+
+const CategoryContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const CategorySpan = styled.div`
+  margin: 0.15rem 0 0 0.5rem;
+`;
+
+const ButtonWrapper = styled.div`
+  margin: 1.2rem 0;
+`;
+
+const ButtonRight = styled.button`
   border: none;
-  font-size: 1.8rem;
-  color: var(--secondary-color);
-  position: absolute;
-  left: 230px;
-  bottom: 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'nothing you could do';
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 5px 12px;
   cursor: pointer;
+  position: absolute;
+  bottom: 4%;
+  right: 8%;
+  display: flex;
+  align-items: center;
+
+  #icon-arrow-right {
+    margin-left: 0.5rem;
+    color: var(--white);
+  }
 `;

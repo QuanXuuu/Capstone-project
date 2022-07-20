@@ -81,7 +81,7 @@ const CreateLabel = styled.label`
   grid-column: span 2;
   margin-top: 1rem;
   margin-left: 0.3rem;
-  color: gray;
+  color: var(--gray);
 `;
 
 const Input = styled.input`
@@ -91,11 +91,10 @@ const Input = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid var(--gray);
-  border-radius: 5px;
 
   :focus {
     outline: none;
-    border-color: var(--secondary-color);
+    border-color: var(--tertiary-color);
   }
 `;
 
@@ -107,11 +106,10 @@ const TimeInput = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid var(--gray);
-  border-radius: 5px;
 
   :focus {
     outline: none;
-    border-color: var(--secondary-color);
+    border-color: var(--tertiary-color);
   }
 `;
 
@@ -124,12 +122,10 @@ const CreateSelect = styled.select`
   background-color: var(--white);
   border: none;
   border-bottom: 1px solid var(--gray);
-  border-radius: 5px;
 
   :focus {
     outline: none;
-    border-color: var(--secondary-color);
-    border-radius: 10px;
+    border-color: var(--tertiary-color);
   }
 `;
 
@@ -147,7 +143,7 @@ const IngredientItem = styled.li`
 const Button = styled.button`
   margin: 20px 0;
   padding: 10px;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;

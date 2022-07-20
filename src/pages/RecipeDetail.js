@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {AiTwotoneEdit} from 'react-icons/ai';
 import {BiCategoryAlt} from 'react-icons/bi';
-import {BsFillArrowLeftCircleFill} from 'react-icons/bs';
 import {BsClockHistory} from 'react-icons/bs';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
 import {useParams, useNavigate} from 'react-router-dom';
@@ -30,18 +29,9 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
     navigate(`/recipes/${id}/edit`);
   };
 
-  const handleBackHome = () => {
-    navigate('/recipes');
-  };
-
   return (
     <div>
-      <DetailName>
-        <IconButtonLeft type="button" onClick={handleBackHome}>
-          <BsFillArrowLeftCircleFill />
-        </IconButtonLeft>
-        {recipe.name}
-      </DetailName>
+      <DetailName>{recipe.name}</DetailName>
 
       <DetailContainer>
         <div>
@@ -84,19 +74,12 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
   );
 }
 
-const IconButtonLeft = styled.button`
-  background-color: var(--bgcolor);
-  border: none;
-  margin-right: 1rem;
-  font-size: 1.8rem;
-  color: var(--secondary-color);
-  cursor: pointer;
-`;
 const DetailName = styled.h1`
   text-align: center;
   margin: 8rem 0 2rem 0;
   font-weight: 400;
   font-size: 2.2rem;
+  color: var(--secondary-color);
 `;
 
 const DetailContainer = styled.div`
@@ -105,6 +88,7 @@ const DetailContainer = styled.div`
   flex-wrap: wrap;
   margin-top: 1rem;
   gap: 1rem;
+  color: var(--secondary-color);
 `;
 
 const DetailImageContainer = styled.div`
@@ -130,6 +114,7 @@ const DetailSubTitleContainer = styled.div`
   #icon-time,
   #icon-category {
     font-size: 1.5rem;
+    color: var(--secondary-color);
   }
 `;
 
@@ -162,6 +147,7 @@ const IngredientContainer = styled.div`
 const IngredientHeader = styled.div`
   font-size: 1.5rem;
   margin: 0 0 0.5rem 1.5rem;
+  color: var(--tertiary-color);
 `;
 
 const Ul = styled.ul`
@@ -187,7 +173,7 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   color: var(--white);
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -62,16 +62,15 @@ const Input = styled.input`
   margin-top: -0.6rem;
   border: none;
   border-bottom: 1px solid var(--gray);
-  border-radius: 5px;
 
   :focus {
     outline: none;
-    border-color: var(--secondary-color);
+    border-color: var(--tertiary-color);
   }
 `;
 
 const Button = styled.button`
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   border: none;
   border-radius: 5px;
   font-size: 1.8rem;

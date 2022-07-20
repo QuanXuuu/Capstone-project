@@ -20,4 +20,6 @@ const Headline = styled.h1`
   margin: 3em 0 0.5em 0;
   font-weight: 400;
   font-size: 2rem;
+  font-family: 'nothing you could do';
+  color: var(--secondary-color);
 `;
