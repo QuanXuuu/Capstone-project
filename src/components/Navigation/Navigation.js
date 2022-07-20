@@ -1,5 +1,6 @@
 import {IoMdAddCircle} from 'react-icons/io';
 import {MdOutlineFoodBank} from 'react-icons/md';
+import {MdViewList} from 'react-icons/md';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,18 +9,27 @@ export default function Navigation() {
     <NavContainer>
       <Nav>
         <StyledNavLink to="/">
-          <LogoContainer>
-            <MdOutlineFoodBank id="logo-home" />
-            <LogoSpan> YUMME</LogoSpan>
-          </LogoContainer>
+          <AppLogoContainer>
+            <MdOutlineFoodBank id="logo-app" />
+            <AppTextSpan> YUMME</AppTextSpan>
+          </AppLogoContainer>
         </StyledNavLink>
 
-        <StyledNavLink to="/recipes/new">
-          <AddContainer>
-            <IoMdAddCircle id="logo-add" />
-            <AddSpan>Add Recipe</AddSpan>
-          </AddContainer>
-        </StyledNavLink>
+        <IconLinkContainer>
+          <StyledNavLink to="/recipes">
+            <ViewContainer>
+              <MdViewList id="icon-view" />
+              <ViewSpan>View</ViewSpan>
+            </ViewContainer>
+          </StyledNavLink>
+
+          <StyledNavLink to="/recipes/new">
+            <AddContainer>
+              <IoMdAddCircle id="icon-add" />
+              <AddSpan>Add</AddSpan>
+            </AddContainer>
+          </StyledNavLink>
+        </IconLinkContainer>
       </Nav>
     </NavContainer>
   );
@@ -30,7 +40,6 @@ const NavContainer = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  font-size: 1.5rem;
   z-index: 999;
 `;
 
@@ -45,28 +54,43 @@ const Nav = styled.div`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  border-radius: 8px;
-  margin: 2rem;
-  color: white;
+  margin: 0 1.5rem;
+  color: var(--bgcolor);
   cursor: pointer;
 
-  #logo-home {
+  #logo-app {
     font-size: 4rem;
   }
-  #logo-add {
+
+  #icon-view,
+  #icon-add {
     font-size: 2rem;
   }
 `;
 
-const LogoSpan = styled.span`
+const AppLogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const AppTextSpan = styled.span`
   font-size: 1.8rem;
   padding-top: 15px;
 `;
 
-const LogoContainer = styled.div`
+const IconLinkContainer = styled.div`
   display: flex;
-  flex-direction: row;
+`;
+const ViewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-right: -1.5rem;
+`;
+
+const ViewSpan = styled.span`
+  font-size: 1rem;
 `;
 
 const AddContainer = styled.div`

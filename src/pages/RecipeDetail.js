@@ -23,7 +23,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
 
   const handleDelete = () => {
     onDeleteRecipe(id);
-    navigate('/');
+    navigate('/recipes');
   };
 
   const handleRedirect = () => {
@@ -31,7 +31,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
   };
 
   const handleBackHome = () => {
-    navigate('/');
+    navigate('/recipes');
   };
 
   return (
@@ -44,18 +44,16 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
       </DetailName>
 
       <DetailContainer>
-        <DetailImageContainer>
-          <DetailImage src={recipe.imgURL} alt={`Picture of a ${recipe.name}`} />
-        </DetailImageContainer>
-
         <div>
+          <DetailImageContainer>
+            <DetailImage src={recipe.imgURL} alt={`Picture of a ${recipe.name}`} />
+          </DetailImageContainer>
+        </div>
+
+        <DetailTextContainer>
           <DetailSubTitleContainer>
             <TimeContainer>
-              <BsClockHistory id="icon-time" />
-              <TimeSpan>
-                {recipe.prepTime}
-                <small>mins</small>
-              </TimeSpan>
+              <BsClockHistory id="icon-time" /> <TimeSpan> {recipe.prepTime}mins</TimeSpan>
             </TimeContainer>
             <CategoryContainer>
               <BiCategoryAlt id="icon-category" /> <CategorySpan> {recipe.category}</CategorySpan>
@@ -66,7 +64,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
             <IngredientHeader>Ingredients</IngredientHeader>
             <Ul>{ingredientItems}</Ul>
           </IngredientContainer>
-        </div>
+        </DetailTextContainer>
       </DetailContainer>
 
       <ButtonContainer>
@@ -118,9 +116,12 @@ const DetailImage = styled.img`
   height: 100%;
   overflow: hidden;
   object-fit: cover;
-  border-radius: 1rem;
+  border-radius: 10px;
 `;
 
+const DetailTextContainer = styled.div`
+  width: 300px;
+`;
 const DetailSubTitleContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -136,10 +137,10 @@ const TimeContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: -1rem;
 `;
+
 const TimeSpan = styled.span`
-  margin: 0.2rem 0 0 0.5rem;
+  margin: 0.15rem 0 0 0.5rem;
 `;
 
 const CategoryContainer = styled.div`
@@ -160,12 +161,12 @@ const IngredientContainer = styled.div`
 
 const IngredientHeader = styled.div`
   font-size: 1.5rem;
-  margin: 0 0 0.5rem 0.5rem;
+  margin: 0 0 0.5rem 1.5rem;
 `;
 
 const Ul = styled.ul`
   list-style: none;
-  margin-left: 1.6rem;
+  margin-left: 2.2rem;
   line-height: 2.2rem;
 `;
 
