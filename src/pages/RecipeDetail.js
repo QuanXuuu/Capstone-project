@@ -159,6 +159,7 @@ const Ul = styled.ul`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 1.5rem;
 `;
 
 const ButtonWrapper = styled.div`
