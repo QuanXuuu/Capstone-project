@@ -6,6 +6,7 @@ import {useParams, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 import IngredientsForm from '../components/IngredientsForm/IngredientsForm';
+import Navigation from '../components/Navigation/Navigation';
 
 export default function RecipeEdit({recipes, onEditRecipe}) {
   const {id} = useParams();
@@ -86,67 +87,70 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
   };
 
   return (
-    <EditForm>
-      <EditLabel htmlFor="name">Name</EditLabel>
-      <Input id="name" name="name" autoComplete="off" defaultValue={recipe.name} onChange={editRecipeName} required />
-      <EditLabel htmlFor="prepTime">
-        Prep Time<small>(mins)</small>
-      </EditLabel>
-      <TimeInput
-        type="number"
-        id="prepTime"
-        name="prepTime"
-        defaultValue={recipe.prepTime}
-        onChange={editRecipePrepTime}
-        required
-      />
-      <EditLabel htmlFor="imgURL">Link to Image</EditLabel>
-      <URLInput
-        type="textarea"
-        id="imgURL"
-        name="imgURL"
-        autoComplete="off"
-        defaultValue={recipe.imgURL}
-        onChange={editRecipeName}
-        required
-      />
-      <EditLabel htmlFor="category">Category</EditLabel>
-      <EditSelect id="category" name="category" defaultValue={recipe.category} onChange={editRecipeCategory} required>
-        <option value="Vegetarian">Vegetarian</option>
-        <option value="Fish">Fish</option>
-        <option value="Meat">Meat</option>
-        <option value="Dessert">Dessert</option>
-      </EditSelect>
+    <>
+      <Navigation />
+      <EditForm>
+        <EditLabel htmlFor="name">Name</EditLabel>
+        <Input id="name" name="name" autoComplete="off" defaultValue={recipe.name} onChange={editRecipeName} required />
+        <EditLabel htmlFor="prepTime">
+          Prep Time<small> (mins)</small>
+        </EditLabel>
+        <TimeInput
+          type="number"
+          id="prepTime"
+          name="prepTime"
+          defaultValue={recipe.prepTime}
+          onChange={editRecipePrepTime}
+          required
+        />
+        <EditLabel htmlFor="imgURL">Link to Image</EditLabel>
+        <URLInput
+          type="textarea"
+          id="imgURL"
+          name="imgURL"
+          autoComplete="off"
+          defaultValue={recipe.imgURL}
+          onChange={editRecipeName}
+          required
+        />
+        <EditLabel htmlFor="category">Category</EditLabel>
+        <EditSelect id="category" name="category" defaultValue={recipe.category} onChange={editRecipeCategory} required>
+          <option value="Vegetarian">Vegetarian</option>
+          <option value="Fish">Fish</option>
+          <option value="Meat">Meat</option>
+          <option value="Dessert">Dessert</option>
+        </EditSelect>
 
-      <IngredientsForm value={ingredients} onAddIngredients={addIngredients} />
+        <IngredientsForm value={ingredients} onAddIngredients={addIngredients} />
 
-      <Scroller role="list">
-        {ingredients.map((ingredient, index) => (
-          <IngredientItem key={index}>
-            <IconButtonDelete type="button" onClick={() => handleDeleteIngredient(index)}>
-              <RiDeleteBin5Fill id="icon-delete" />
-            </IconButtonDelete>
-            {ingredient}
-          </IngredientItem>
-        ))}
-      </Scroller>
+        <Scroller role="list">
+          {ingredients.map((ingredient, index) => (
+            <IngredientItem key={index}>
+              <IconButtonDelete type="button" onClick={() => handleDeleteIngredient(index)}>
+                <RiDeleteBin5Fill id="icon-delete" />
+              </IconButtonDelete>
+              {ingredient}
+            </IngredientItem>
+          ))}
+        </Scroller>
 
-      <ButtonContainer>
-        <ButtonWrapper>
-          <Button type="button" onClick={handleRedirect}>
-            <MdCancel id="icon-cancel" />
-            <ButtonTextSpan>Cancel</ButtonTextSpan>
-          </Button>
-        </ButtonWrapper>
+        <ButtonContainer>
+          <ButtonWrapper>
+            <Button type="button" onClick={handleRedirect}>
+              <MdCancel id="icon-cancel" />
+              <ButtonTextSpan>Cancel</ButtonTextSpan>
+            </Button>
+          </ButtonWrapper>
 
-        <ButtonWrapper>
-          <Button type="submit" onClick={handleSubmit}>
-            <FaSave id="icon-update" />
-            <ButtonTextSpan>Save</ButtonTextSpan>
-          </Button>
-        </ButtonWrapper>
-      </ButtonContainer>
-    </EditForm>
+          <ButtonWrapper>
+            <Button type="submit" onClick={handleSubmit}>
+              <FaSave id="icon-update" />
+              <ButtonTextSpan>Save</ButtonTextSpan>
+            </Button>
+          </ButtonWrapper>
+        </ButtonContainer>
+      </EditForm>
+    </>
   );
 }
 

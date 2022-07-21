@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import Navigation from '../components/Navigation/Navigation';
 import RecipeCard from '../components/RecipeCard/RecipeCard';
 
 export default function Home({recipes}) {
@@ -16,6 +17,7 @@ export default function Home({recipes}) {
 
   return (
     <Container>
+      <Navigation />
       <Headline>Your digital recipe book</Headline>
 
       <CardContainer>{recipeCards}</CardContainer>

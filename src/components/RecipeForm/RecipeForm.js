@@ -36,7 +36,7 @@ export default function RecipeForm({onAddRecipe}) {
       <CreateLabel htmlFor="name">Name</CreateLabel>
       <Input id="name" name="name" autoComplete="off" required />
       <CreateLabel htmlFor="prepTime">
-        Prep Time<small>(mins)</small>
+        Prep Time<small> (mins)</small>
       </CreateLabel>
 
       <TimeInput type="number" id="prepTime" name="prepTime" autoComplete="off" required />

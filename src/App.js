@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import {Routes, Route, Outlet} from 'react-router-dom';
 
-import Navigation from './components/Navigation/Navigation.js';
 import dbRecipes from './data/recipes.json';
 import {setToLocal, getFromLocal} from './lib/localStorage.js';
 import Home from './pages/Home';
@@ -29,7 +28,6 @@ export default function App() {
 
   return (
     <>
-      <Navigation />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/recipes">

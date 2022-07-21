@@ -7,6 +7,7 @@ import {useParams, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Dialogue from '../components/Dialogue/Dialogue';
+import Navigation from '../components/Navigation/Navigation';
 
 export default function RecipeDetail({recipes, onDeleteRecipe}) {
   const {id} = useParams();
@@ -31,6 +32,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
 
   return (
     <div>
+      <Navigation />
       <DetailName>{recipe.name}</DetailName>
 
       <DetailContainer>
