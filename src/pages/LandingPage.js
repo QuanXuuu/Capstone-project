@@ -32,8 +32,8 @@ const PageContainer = styled.div`
 
 const AppTitle = styled.h1`
   text-align: center;
-  margin-top: 1rem;
-  font-size: 2.4rem;
+  margin-top: 0.8rem;
+  font-size: 2.2rem;
   font-weight: 500;
   font-family: 'nothing you could do', sans-serif;
   color: var(--secondary-color);
@@ -41,7 +41,7 @@ const AppTitle = styled.h1`
 
 const ImageContainer = styled.div`
   width: 375px;
-  height: 390px;
+  height: 380px;
   margin: 5rem auto 0 auto;
 `;
 
@@ -64,7 +64,7 @@ const ButtonStart = styled.button`
   align-items: center;
   cursor: pointer;
   position: absolute;
-  bottom: 18%;
+  bottom: 17%;
   right: 2rem;
 
   #icon-start {
