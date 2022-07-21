@@ -7,7 +7,6 @@ import {useParams, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Dialogue from '../components/Dialogue/Dialogue';
-import Navigation from '../components/Navigation/Navigation';
 
 export default function RecipeDetail({recipes, onDeleteRecipe}) {
   const {id} = useParams();
@@ -31,8 +30,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
   };
 
   return (
-    <div>
-      <Navigation />
+    <DetailWrapper>
       <DetailName>{recipe.name}</DetailName>
 
       <DetailContainer>
@@ -72,9 +70,13 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
         </ButtonWrapper>
       </ButtonContainer>
       {isDialogueShown && <Dialogue onHandleDelete={handleDelete} onHideDialogue={toggleDialogue} />}
-    </div>
+    </DetailWrapper>
   );
 }
+
+const DetailWrapper = styled.div`
+  overflow-y: auto;
+`;
 
 const DetailName = styled.h1`
   text-align: center;

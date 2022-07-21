@@ -17,10 +17,6 @@ export default styled.createGlobalStyle`
     --tertiary-color: #ffcc00;
     --white: #ffffff;
     --gray: #7f8c8d;
-
-    display: grid;
-    grid-template-rows: auto 1fr;
-    height: 100vh;
   }
 
   html {
@@ -33,5 +29,9 @@ export default styled.createGlobalStyle`
     color: var(--secondary-color);
     background-color: var(--bgcolor);
     line-height: 1.2;
+  }
+
+  main {
+    overflow-y: auto;
   }
 `;

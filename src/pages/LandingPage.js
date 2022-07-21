@@ -2,7 +2,6 @@ import {AiOutlineArrowRight} from 'react-icons/ai';
 import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
-import Navigation from '../components/Navigation/Navigation';
 import AppImage from '../image/background.png';
 
 export default function LandingPage() {
@@ -13,7 +12,6 @@ export default function LandingPage() {
   };
   return (
     <PageContainer>
-      <Navigation />
       <ImageContainer>
         <Image src={AppImage} alt="food" />
       </ImageContainer>

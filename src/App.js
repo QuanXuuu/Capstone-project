@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
 import {Routes, Route, Outlet} from 'react-router-dom';
+import styled from 'styled-components';
 
+import Navigation from './components/Navigation/Navigation';
 import dbRecipes from './data/recipes.json';
 import {setToLocal, getFromLocal} from './lib/localStorage.js';
 import Home from './pages/Home';
@@ -27,7 +29,8 @@ export default function App() {
   useEffect(() => setToLocal('recipes', recipes), [recipes]);
 
   return (
-    <>
+    <StyledWrapper>
+      <Navigation />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/recipes">
@@ -38,6 +41,12 @@ export default function App() {
         </Route>
       </Routes>
       <Outlet />
-    </>
+    </StyledWrapper>
   );
 }
+
+const StyledWrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+`;

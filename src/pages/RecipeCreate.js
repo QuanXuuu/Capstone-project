@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
-import Navigation from '../components/Navigation/Navigation';
 import RecipeForm from '../components/RecipeForm/RecipeForm.js';
 
 export default function RecipeCreate({onAddRecipe}) {
   return (
     <Container>
-      <Navigation />
       <Headline>New Recipe</Headline>
       <RecipeForm onAddRecipe={onAddRecipe} />
     </Container>
