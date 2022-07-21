@@ -87,12 +87,12 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
 
   return (
     <EditForm>
-      <EditLabel htmlFor="name">Add name:</EditLabel>
-      <input id="name" name="name" autoComplete="off" defaultValue={recipe.name} onChange={editRecipeName} required />
+      <EditLabel htmlFor="name">Name</EditLabel>
+      <Input id="name" name="name" autoComplete="off" defaultValue={recipe.name} onChange={editRecipeName} required />
       <EditLabel htmlFor="prepTime">
-        Add prepTime<small>(mins)</small>:
+        Prep Time<small> (mins)</small>
       </EditLabel>
-      <input
+      <TimeInput
         type="number"
         id="prepTime"
         name="prepTime"
@@ -100,7 +100,17 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
         onChange={editRecipePrepTime}
         required
       />
-      <EditLabel htmlFor="category">Select category:</EditLabel>
+      <EditLabel htmlFor="imgURL">Link to Image</EditLabel>
+      <URLInput
+        type="textarea"
+        id="imgURL"
+        name="imgURL"
+        autoComplete="off"
+        defaultValue={recipe.imgURL}
+        onChange={editRecipeName}
+        required
+      />
+      <EditLabel htmlFor="category">Category</EditLabel>
       <EditSelect id="category" name="category" defaultValue={recipe.category} onChange={editRecipeCategory} required>
         <option value="Vegetarian">Vegetarian</option>
         <option value="Fish">Fish</option>
@@ -113,22 +123,29 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
       <Scroller role="list">
         {ingredients.map((ingredient, index) => (
           <IngredientItem key={index}>
-            <ButtonDelete type="button" onClick={() => handleDeleteIngredient(index)}>
-              <RiDeleteBin5Fill />
-            </ButtonDelete>
+            <IconButtonDelete type="button" onClick={() => handleDeleteIngredient(index)}>
+              <RiDeleteBin5Fill id="icon-delete" />
+            </IconButtonDelete>
             {ingredient}
           </IngredientItem>
         ))}
       </Scroller>
 
-      <ButtonWrapper>
-        <Button type="button" onClick={handleRedirect}>
-          <MdCancel /> Cancel
-        </Button>
-        <Button type="submit" onClick={handleSubmit}>
-          <FaSave /> Save
-        </Button>
-      </ButtonWrapper>
+      <ButtonContainer>
+        <ButtonWrapper>
+          <Button type="button" onClick={handleRedirect}>
+            <MdCancel id="icon-cancel" />
+            <ButtonTextSpan>Cancel</ButtonTextSpan>
+          </Button>
+        </ButtonWrapper>
+
+        <ButtonWrapper>
+          <Button type="submit" onClick={handleSubmit}>
+            <FaSave id="icon-update" />
+            <ButtonTextSpan>Save</ButtonTextSpan>
+          </Button>
+        </ButtonWrapper>
+      </ButtonContainer>
     </EditForm>
   );
 }
@@ -137,53 +154,138 @@ const EditForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 0 auto;
-  max-width: 400px;
+  margin: 7em auto 0 auto;
+  width: 350px;
 `;
 
 const EditLabel = styled.label`
-  font-size: 1.2em;
+  font-size: 1em;
   grid-column: span 2;
+  margin-top: 1rem;
+  margin-left: 0.3rem;
+  color: var(--gray);
+`;
+
+const Input = styled.input`
+  padding: 10px 5px;
+  font-size: 1em;
+  color: inherit;
+  margin-top: -0.6rem;
+  border: none;
+  border-bottom: 1px solid gray;
+
+  :focus {
+    outline: none;
+    border-color: var(--tertiary-color);
+  }
+`;
+
+const TimeInput = styled.input`
+  padding: 10px 5px;
+  font-size: 1em;
+  color: inherit;
+  margin-top: -0.6rem;
+  border: none;
+  border-bottom: 1px solid gray;
+  appearance: textfield;
+
+  :focus {
+    outline: none;
+    border-color: var(--tertiary-color);
+  }
+`;
+
+const URLInput = styled.input`
+  padding: 10px 5px;
+  font-size: 1em;
+  color: inherit;
+  overflow-wrap: break-word;
+  margin-top: -0.6rem;
+  border: none;
+  border-bottom: 1px solid gray;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  :focus {
+    outline: none;
+    border-color: var(--tertiary-color);
+  }
 `;
 
 const EditSelect = styled.select`
   font-size: 1em;
+  padding: 10px 2px;
+  color: inherit;
+  margin: 0.2rem 0;
+  margin-top: -0.6rem;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid gray;
+
+  :focus {
+    outline: none;
+    border-color: var(--tertiary-color);
+  }
 `;
 
 const Scroller = styled.ul`
   height: 100%;
   overflow-y: auto;
+  margin: 1.2rem 0 0 1.5rem;
+  line-height: 1.6rem;
 `;
 
 const IngredientItem = styled.li`
   list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
 `;
 
-const ButtonDelete = styled.button`
-  background-color: whitesmoke;
+const IconButtonDelete = styled.button`
+  background-color: var(--bgcolor);
   border: none;
-  color: inherit;
+  color: var(--secondary-color);
   margin-right: 0.6rem;
   cursor: pointer;
+
+  #icon-delete {
+    font-size: 1.2rem;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
 
 const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  width: 110px;
 `;
 
 const Button = styled.button`
   padding: 10px;
-  margin: 1.5rem 3rem;
-  border: 1px solid var(--lightcyan);
-  border-radius: 8px;
-  color: inherit;
-  background-color: whitesmoke;
-  font-size: 1.2rem;
+  margin: 2.5rem 0;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 
-  :active {
-    background-color: var(--blue);
+  #icon-cancel,
+  #icon-update {
+    font-size: 1.2rem;
     color: white;
   }
+`;
+
+const ButtonTextSpan = styled.span`
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  font-weight: 300;
 `;

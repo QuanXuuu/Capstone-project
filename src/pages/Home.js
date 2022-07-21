@@ -16,8 +16,7 @@ export default function Home({recipes}) {
 
   return (
     <Container>
-      <Headline>Yumme</Headline>
-      <SubHeadline>Your digital recipe book</SubHeadline>
+      <Headline>Your digital recipe book</Headline>
 
       <CardContainer>{recipeCards}</CardContainer>
     </Container>
@@ -25,24 +24,23 @@ export default function Home({recipes}) {
 }
 
 const Container = styled.main`
-  padding: 10px;
+  padding: 40px 20px;
   margin: 0 auto;
 `;
 
 const Headline = styled.h1`
   text-align: center;
-`;
-
-const SubHeadline = styled.h2`
-  margin-top: -20px;
-  text-align: center;
-  font-weight: 300;
+  margin: 2.5em 0 1em 0;
+  font-weight: 400;
+  font-size: 1.7rem;
+  font-family: 'nothing you could do', sans-serif;
+  color: var(--secondary-color);
 `;
 
 const CardContainer = styled.div`
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  gap: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
 `;

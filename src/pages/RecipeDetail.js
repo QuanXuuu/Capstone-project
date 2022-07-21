@@ -1,9 +1,8 @@
 import {useState} from 'react';
-import {AiTwotoneDelete} from 'react-icons/ai';
 import {AiTwotoneEdit} from 'react-icons/ai';
 import {BiCategoryAlt} from 'react-icons/bi';
 import {BsClockHistory} from 'react-icons/bs';
-import {FiAlignJustify} from 'react-icons/fi';
+import {RiDeleteBin5Fill} from 'react-icons/ri';
 import {useParams, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -23,7 +22,7 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
 
   const handleDelete = () => {
     onDeleteRecipe(id);
-    navigate('/');
+    navigate('/recipes');
   };
 
   const handleRedirect = () => {
@@ -31,79 +30,173 @@ export default function RecipeDetail({recipes, onDeleteRecipe}) {
   };
 
   return (
-    <DetailCard>
-      <DetailHeader>{recipe.name}</DetailHeader>
-      <DetailImage src={recipe.imgURL} alt={`Picture of a ${recipe.name}`} />
-      <p>
-        <BsClockHistory /> PrepTime: {recipe.prepTime}
-        <small>mins</small>
-      </p>
-      <p>
-        <BiCategoryAlt /> Category: {recipe.category}
-      </p>
-      <DetailIngredientsList>
-        <FiAlignJustify /> Ingredients:
-      </DetailIngredientsList>
-      <ul>{ingredientItems}</ul>
+    <DetailWrapper>
+      <DetailName>{recipe.name}</DetailName>
+
+      <DetailContainer>
+        <div>
+          <DetailImageContainer>
+            <DetailImage src={recipe.imgURL} alt={`Picture of a ${recipe.name}`} />
+          </DetailImageContainer>
+        </div>
+
+        <DetailTextContainer>
+          <DetailSubTitleContainer>
+            <TimeContainer>
+              <BsClockHistory id="icon-time" /> <TimeSpan> {recipe.prepTime}mins</TimeSpan>
+            </TimeContainer>
+            <CategoryContainer>
+              <BiCategoryAlt id="icon-category" /> <CategorySpan> {recipe.category}</CategorySpan>
+            </CategoryContainer>
+          </DetailSubTitleContainer>
+
+          <IngredientContainer>
+            <IngredientHeader>Ingredients</IngredientHeader>
+            <Ul>{ingredientItems}</Ul>
+          </IngredientContainer>
+        </DetailTextContainer>
+      </DetailContainer>
 
       <ButtonContainer>
-        <Button onClick={toggleDialogue}>
-          <AiTwotoneDelete /> Delete
-        </Button>
-
-        <Button onClick={handleRedirect}>
-          <AiTwotoneEdit /> Edit
-        </Button>
+        <ButtonWrapper>
+          <Button onClick={toggleDialogue}>
+            <RiDeleteBin5Fill id="icon-delete" /> <ButtonTextSpan> Delete</ButtonTextSpan>
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button onClick={handleRedirect}>
+            <AiTwotoneEdit id="icon-edit" /> <ButtonTextSpan>Edit</ButtonTextSpan>
+          </Button>
+        </ButtonWrapper>
       </ButtonContainer>
-
       {isDialogueShown && <Dialogue onHandleDelete={handleDelete} onHideDialogue={toggleDialogue} />}
-    </DetailCard>
+    </DetailWrapper>
   );
 }
 
-const DetailCard = styled.div`
-  padding: 1rem;
-  border-radius: 1rem;
-  margin: 0 auto;
-  box-shadow: 1rem 0.5rem 1rem #e6e6e6;
-  max-width: 320px;
+const DetailWrapper = styled.div`
+  overflow-y: auto;
 `;
 
-const DetailHeader = styled.h1`
+const DetailName = styled.h1`
   text-align: center;
-  font-size: 1.6rem;
-  font-weight: 600;
+  margin: 8rem 0 2rem 0;
+  font-weight: 400;
+  font-size: 2.2rem;
+  color: var(--secondary-color);
 `;
 
-const DetailIngredientsList = styled.h2`
+const DetailContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  gap: 1rem;
+  color: var(--secondary-color);
+`;
+
+const DetailImageContainer = styled.div`
+  width: 300px;
+  height: 240px;
+`;
+const DetailImage = styled.img`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 10px;
+`;
+
+const DetailTextContainer = styled.div`
+  width: 300px;
+`;
+
+const DetailSubTitleContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0 1.8rem -2rem;
+
+  #icon-time,
+  #icon-category {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+  }
+`;
+
+const TimeContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const TimeSpan = styled.span`
+  margin: 0.15rem 0 0 0.5rem;
+`;
+
+const CategoryContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const CategorySpan = styled.div`
+  margin: 0.15rem 0 0 0.5rem;
+`;
+
+const IngredientContainer = styled.div`
   font-weight: lighter;
   font-size: 1.2rem;
+  margin: 1rem 0 0 0.2rem;
 `;
 
-const DetailImage = styled.img`
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  margin-top: 20px;
+const IngredientHeader = styled.div`
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0.6rem;
+  color: var(--tertiary-color);
+`;
+
+const Ul = styled.ul`
+  list-style: none;
+  margin-left: 2.2rem;
+  line-height: 2.2rem;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 110px;
+  margin: 0 2rem;
 `;
 
 const Button = styled.button`
   padding: 10px;
-  margin: 1.8rem;
-  border: 1px solid var(--lightcyan);
-  border-radius: 8px;
-  color: inherit;
-  background-color: whitesmoke;
-  font-size: 1.2rem;
+  margin: 3rem 0 0 0;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 
   :active {
-    background-color: var(--blue);
-    color: white;
+    background-color: var(--third-color);
   }
+
+  #icon-delete,
+  #icon-edit {
+    font-size: 1.2rem;
+  }
+`;
+
+const ButtonTextSpan = styled.span`
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  font-weight: 300;
 `;

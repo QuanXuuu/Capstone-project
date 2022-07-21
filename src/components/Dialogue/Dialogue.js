@@ -4,7 +4,7 @@ export default function Dialogue({onHideDialogue, onHandleDelete}) {
   return (
     <BackgroundCover>
       <DialogueWrapper>
-        <p>Are you sure you want to delete this recipe?</p>
+        <Text>Are you sure you want to delete this recipe?</Text>
         <DialogueButtonWrapper>
           <ButtonCancel onClick={onHideDialogue}>Cancel</ButtonCancel>
           <ButtonConfirm onClick={onHandleDelete}>Delete</ButtonConfirm>
@@ -33,27 +33,38 @@ const DialogueWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: whitesmoke;
-  padding: 40px;
+  padding: 40px 60px;
   border-radius: 9px;
+`;
+
+const Text = styled.p`
+  font-size: 1.2rem;
+  line-height: 2rem;
+  color: var(--secondary-color);
 `;
 
 const DialogueButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   color: inherit;
+  margin-top: 1rem;
 `;
 
 const ButtonCancel = styled.button`
-  color: inherit;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--white);
   margin-right: 20px;
   padding: 5px 10px;
-  border: 1px solid var(--blue);
-  border-radius: 8px;
+  border-radius: 6px;
+  cursor: pointer;
 `;
 const ButtonConfirm = styled.button`
-  color: inherit;
+  background-color: var(--primary-color);
+  color: var(--white);
   margin-left: 20px;
   padding: 5px 10px;
-  border: 1px solid var(--blue);
-  border-radius: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 `;
