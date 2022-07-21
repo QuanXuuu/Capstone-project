@@ -15,7 +15,7 @@ export default function App() {
   const [recipes, setRecipes] = useState(getFromLocal('recipes') ?? dbRecipes);
 
   function addRecipe(recipe) {
-    setRecipes([...recipes, recipe]);
+    setRecipes([recipe, ...recipes]);
   }
 
   function editRecipe(otherRecipes, editedRecipe) {
