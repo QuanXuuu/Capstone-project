@@ -106,10 +106,11 @@ const DetailImage = styled.img`
 const DetailTextContainer = styled.div`
   width: 300px;
 `;
+
 const DetailSubTitleContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 1rem 0 1.8rem 0;
+  margin: 1rem 0 1.8rem -2rem;
 
   #icon-time,
   #icon-category {
@@ -141,12 +142,12 @@ const CategorySpan = styled.div`
 const IngredientContainer = styled.div`
   font-weight: lighter;
   font-size: 1.2rem;
-  margin: 1rem 0 0 1rem;
+  margin: 1rem 0 0 0.2rem;
 `;
 
 const IngredientHeader = styled.div`
   font-size: 1.5rem;
-  margin: 0 0 0.5rem 1.5rem;
+  margin: 0 0 0.5rem 0.6rem;
   color: var(--tertiary-color);
 `;
 
@@ -159,7 +160,7 @@ const Ul = styled.ul`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 `;
 
 const ButtonWrapper = styled.div`

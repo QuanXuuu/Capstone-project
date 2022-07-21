@@ -41,7 +41,7 @@ export default function RecipeForm({onAddRecipe}) {
 
       <TimeInput type="number" id="prepTime" name="prepTime" autoComplete="off" required />
 
-      <CreateLabel htmlFor="imgURL">Image URL</CreateLabel>
+      <CreateLabel htmlFor="imgURL">Link to Image</CreateLabel>
       <Input id="imgURL" name="imgURL" autoComplete="off" required />
 
       <CreateLabel htmlFor="category">Category</CreateLabel>

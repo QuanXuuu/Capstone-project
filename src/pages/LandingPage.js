@@ -16,8 +16,10 @@ export default function LandingPage() {
         <Image src={AppImage} alt="food" />
       </ImageContainer>
 
-      <AppTitle>Your digital</AppTitle>
-      <AppTitle>recipe book</AppTitle>
+      <TextWrapper>
+        <AppTitle>Your digital</AppTitle>
+        <AppTitle>recipe book</AppTitle>
+      </TextWrapper>
 
       <ButtonStart type="button" onClick={handleRedirect}>
         <span>Start cooking</span> <AiOutlineArrowRight id="icon-start" />
@@ -52,6 +54,11 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
+const TextWrapper = styled.div`
+  margin-top: 1.8rem;
+  line-height: 1.8rem;
+`;
+
 const ButtonStart = styled.button`
   border: none;
   border-radius: 8px;
@@ -64,8 +71,8 @@ const ButtonStart = styled.button`
   align-items: center;
   cursor: pointer;
   position: absolute;
-  bottom: 17%;
-  right: 2rem;
+  bottom: 6%;
+  right: 1.5rem;
 
   #icon-start {
     margin-left: 0.5rem;

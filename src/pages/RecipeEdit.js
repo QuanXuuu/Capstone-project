@@ -100,7 +100,7 @@ export default function RecipeEdit({recipes, onEditRecipe}) {
         onChange={editRecipePrepTime}
         required
       />
-      <EditLabel htmlFor="imgURL">Image URL</EditLabel>
+      <EditLabel htmlFor="imgURL">Link to Image</EditLabel>
       <URLInput
         type="textarea"
         id="imgURL"

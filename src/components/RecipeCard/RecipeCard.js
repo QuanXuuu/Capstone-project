@@ -49,7 +49,7 @@ const CardWrapper = styled.div`
   margin: 0.8rem auto;
   border-radius: 1rem;
   box-shadow: 2px 3px 9px 3px #b9b9b9;
-  width: 280px;
+  width: 300px;
   position: relative;
   color: var(--secondary-color);
 `;
@@ -66,7 +66,7 @@ const linkStyle = {
 };
 
 const CardImageContainer = styled.div`
-  width: 280px;
+  width: 300px;
   height: 220px;
 `;
 

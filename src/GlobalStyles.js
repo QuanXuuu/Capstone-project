@@ -13,10 +13,14 @@ export default styled.createGlobalStyle`
   :root {
     --bgcolor: #ffffff;
     --primary-color: #27ae60;
-    --secondary-color: #1e8449;
+    --secondary-color: #007d72;
     --tertiary-color: #ffcc00;
     --white: #ffffff;
     --gray: #7f8c8d;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -25,6 +29,9 @@ export default styled.createGlobalStyle`
     color: var(--secondary-color);
     background-color: var(--bgcolor);
     line-height: 1.2;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
     height: 100vh;
   }
 `;
