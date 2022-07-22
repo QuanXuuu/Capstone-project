@@ -1,17 +1,11 @@
-import {AiOutlineArrowRight} from 'react-icons/ai';
 import {BiCategoryAlt} from 'react-icons/bi';
 import {BsClockHistory} from 'react-icons/bs';
 import {Link} from 'react-router-dom';
-import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
+import ButtonMore from '../Buttons/ButtonMore/ButtonMore';
+
 export default function RecipeCard({id, name, prepTime, category, image}) {
-  const navigate = useNavigate();
-
-  const handleRedirect = () => {
-    navigate(`/recipes/${id}`);
-  };
-
   return (
     <CardWrapper>
       <CardImageContainer>
@@ -36,10 +30,7 @@ export default function RecipeCard({id, name, prepTime, category, image}) {
       </CardDetailContainer>
 
       <ButtonWrapper>
-        <ButtonRight type="button" onClick={handleRedirect}>
-          <span>More</span>
-          <AiOutlineArrowRight id="icon-arrow-right" />
-        </ButtonRight>
+        <ButtonMore id={id} />
       </ButtonWrapper>
     </CardWrapper>
   );
@@ -112,25 +103,4 @@ const CategorySpan = styled.div`
 
 const ButtonWrapper = styled.div`
   margin: 1.2rem 0;
-`;
-
-const ButtonRight = styled.button`
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: 'nothing you could do', sans-serif;
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 5px 12px;
-  cursor: pointer;
-  position: absolute;
-  bottom: 4%;
-  right: 8%;
-  display: flex;
-  align-items: center;
-
-  #icon-arrow-right {
-    margin-left: 0.5rem;
-    color: var(--white);
-  }
 `;
