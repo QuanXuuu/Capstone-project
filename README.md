@@ -2,8 +2,6 @@
 
 ## Capstone project - Web Development Bootcamp [@neuefische GmbH](https://www.neuefische.de)
 
----
-
 ### Tech stack used:
 
 - React
