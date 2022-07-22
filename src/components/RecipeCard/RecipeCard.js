@@ -3,7 +3,7 @@ import {BsClockHistory} from 'react-icons/bs';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-import ButtonMore from '../Buttons/ButtonMore/ButtonMore';
+import ButtonMore from '../ButtonArrow/ButtonMore/ButtonMore';
 
 export default function RecipeCard({id, name, prepTime, category, image}) {
   return (

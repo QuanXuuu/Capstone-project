@@ -9,7 +9,6 @@ export default function ButtonMore({id}) {
     navigate(`/recipes/${id}`);
   };
 
-  console.log({id});
   return (
     <Button type="button" onClick={handleRedirect}>
       <span>More</span> <AiOutlineArrowRight id="icon-arrow-right" />
@@ -25,12 +24,12 @@ const Button = styled.button`
   background-color: var(--primary-color);
   color: var(--white);
   padding: 5px 12px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   position: absolute;
   bottom: 4%;
   right: 8%;
-  display: flex;
-  align-items: center;
 
   #icon-arrow-right {
     margin-left: 0.5rem;

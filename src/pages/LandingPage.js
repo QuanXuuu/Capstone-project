@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import ButtonStart from '../components/Buttons/ButtonStart/ButtonStart';
+import ButtonStart from '../components/ButtonArrow/ButtonStart/ButtonStart';
 import AppImage from '../image/background.png';
 
 export default function LandingPage() {
